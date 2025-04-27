@@ -17,6 +17,7 @@ import (
 
 func main() {
 	// Load configuration
+
 	cfg := config.LoadConfig()
 
 	// Initialize database
@@ -41,6 +42,7 @@ func main() {
 		// Serve the file
 		c.File(filePath)
 	})
+
 	// Setup routes
 	routes.SetupRoutes(router.Group("/api/v0"), &cfg, db)
 

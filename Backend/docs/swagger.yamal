@@ -1,0 +1,4556 @@
+openapi: 3.0.0
+info:
+  title: A2SV_HUB_v2
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+  - url: https://a2sv-hub-52ak.onrender.com
+  - url: https://api.getpostman.com
+components:
+  securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
+    apikeyAuth:
+      type: http
+      scheme: apikey
+tags:
+  - name: super_group
+  - name: problems
+  - name: invite
+  - name: Track
+    description: |-
+      StartFragment
+
+      #### 1\. Get All Tracks
+
+      - **Endpoint Name:** Get all tracks
+          
+      - **Method & URL:** `GET /api/v0/track`
+          
+      - **Headers:** None required
+          
+      - **Response Example:**
+          
+
+      ``` json
+      json[
+        {
+          "ID": 1,
+          "Name": "Exercise",
+          "Description": "Get exercise problems"
+        },
+        {
+          "ID": 2,
+          "Name": "Practice",
+          "Description": "Practice problems"
+        }
+      ]
+
+       ```
+
+      ---
+
+      #### 2\. Create a Track
+
+      - **Endpoint Name:** Create a new track
+          
+      - **Method & URL:** `POST /api/v0/track`
+          
+      - **Headers:**
+          
+          - `Content-Type: application/json`
+              
+      - **Request Body:**
+          
+
+      ```
+      json{
+        "name": "AI",
+        "description": "Track focused on artificial intelligence"
+      }
+
+       ```
+
+      - **Success Response:**
+          
+
+      ```
+      jsonCopy{
+        "message": "Track created successfully.",
+        "track": {
+          "ID": 3,
+          "Name": "AI",
+          "Description": "Track focused on artificial intelligence"
+        }
+      }
+
+       ```
+
+      ---
+
+      #### 3\. Get Track by ID
+
+      - **Endpoint Name:** Get a track by ID
+          
+      - **Method & URL:** `GET /api/v0/track/:id`
+          
+      - **Path Parameters:**
+          
+          - `id` (int) – Track ID
+              
+      - **Success Response:**
+          
+
+      ``` json
+      json{
+        "ID": 1,
+        "Name": "Backend",
+        "Description": "Track focused on server-side development"
+      }
+
+       ```
+
+      ---
+
+      #### 4\. Search Tracks by Name
+
+      - **Endpoint Name:** Search tracks by name
+          
+      - **Method & URL:** `GET /api/v0/track/search?name=Backend`
+          
+      - **Query Parameters:**
+          
+          - `name` (string) – Track name to search
+              
+      - **Success Response:** Same as "Get All Tracks" but filtered
+          
+
+      ---
+
+      #### 5\. Update Track
+
+      - **Endpoint Name:** Update an existing track
+          
+      - **Method & URL:** `PUT /api/v0/track/:id`
+          
+      - **Headers:**
+          
+          - `Content-Type: application/json`
+              
+      - **Path Parameters:** `id` (Track ID)
+          
+      - **Request Body:**
+          
+
+      ``` json
+      json{
+        "name": "Updated Name",
+        "description": "Updated description"
+      }
+
+       ```
+
+      - **Success Response:**
+          
+
+      ``` json
+      json{
+        "message": "Track updated successfully.",
+        "track": {
+          "ID": 1,
+          "Name": "Updated Name",
+          "Description": "Updated description"
+        }
+      }
+
+       ```
+
+      ---
+
+      #### 6\. Delete Track
+
+      - **Endpoint Name:** Delete a track
+          
+      - **Method & URL:** `DELETE /api/v0/track/:id`
+          
+      - **Path Parameters:** `id` (Track ID)
+          
+      - **Success Response:**
+          
+
+      ``` go
+      json{
+        "message": "Track deleted successfully."
+      }
+
+       ```
+  - name: Submissions
+    description: |-
+      ## Submission Endpoints
+
+      ### 🔹 Create Submission
+
+      **POST** `/api/v0/submission`  
+      **Description:** Create a new submission.
+
+      #### 🧾 Headers
+
+      - `Content-Type: application/json`
+          
+
+      #### 🧾 Request Body
+
+      ``` json
+      json{
+        "problemID": 4,
+        "userID": 2,
+        "timeSpent": 120,
+        "tries": 3,
+        "inContest": 1,
+        "code": "print('Hello, World!')",
+        "language": "Python",
+        "verified": true
+      }
+
+       ```
+
+      #### ✅ Response
+
+      ``` json
+      json{
+        "message": "Submission created successfully.",
+        "submission": {
+          "ID": 8,
+          "ProblemID": 4,
+          "UserID": 2,
+          "TimeSpent": 120,
+          "Tries": 3,
+          "InContest": 1,
+          "Code": "print('Hello, World!')",
+          "Language": "Python",
+          "Verified": true,
+          "CreatedAt": "2025-04-23T18:50:12.7070412+03:00",
+          "UpdatedAt": "2025-04-23T18:50:12.7070412+03:00"
+        }
+      }
+
+       ```
+
+      ---
+
+      ### 🔹 Get Submission by ID
+
+      **GET** `/api/v0/submission/:id`  
+      **Description:** Get a submission by ID.
+
+      #### 🔧 Path Parameter
+
+      - `id` — Submission ID
+          
+
+      #### ✅ Response
+
+      ``` json
+      json{
+        "ID": 8,
+        "ProblemID": 4,
+        "UserID": 2,
+        "TimeSpent": 120,
+        "Tries": 3,
+        "InContest": 1,
+        "Code": "print('Hello, World!')",
+        "Language": "Python",
+        "Verified": true,
+        "CreatedAt": "2025-04-23T18:50:12.7070412+03:00",
+        "UpdatedAt": "2025-04-23T18:50:12.7070412+03:00"
+      }
+
+       ```
+
+      ---
+
+      ### 🔹 Get Submissions by Problem
+
+      **GET** `/api/v0/submission/problem?problemID=4`  
+      **Description:** Get all submissions for a specific problem.
+
+      #### 🔎 Query Parameter
+
+      - `problemID` — ID of the problem
+          
+
+      #### ✅ Response
+
+      ``` json
+      json[
+        {
+          "ID": 5,
+          "ProblemID": 4,
+          "UserID": 2,
+          "TimeSpent": 100,
+          "Tries": 2,
+          "InContest": 1,
+          "Code": "print('Test')",
+          "Language": "Python",
+          "Verified": true,
+          "CreatedAt": "2025-04-23T17:30:00.000Z",
+          "UpdatedAt": "2025-04-23T17:30:00.000Z"
+        }
+      ]
+
+       ```
+
+      ---
+
+      ### 🔹 Update Submission
+
+      **PUT** `/api/v0/submission/:id`  
+      **Description:** Update an existing submission.
+
+      #### 🔧 Path Parameter
+
+      - `id` — Submission ID
+          
+
+      #### 🧾 Request Body
+
+      ```
+      jsonCopy code{
+        "problemID": 4,
+        "userID": 2,
+        "timeSpent": 140,
+        "tries": 4,
+        "inContest": 1,
+        "code": "print('Updated Code')",
+        "language": "Python",
+        "verified": true
+      }
+
+       ```
+
+      #### ✅ Response
+
+      ``` json
+      json{
+        "message": "Submission updated successfully.",
+        "submission": {
+          "ID": 8,
+          "ProblemID": 4,
+          "UserID": 2,
+          "TimeSpent": 140,
+          "Tries": 4,
+          "InContest": 1,
+          "Code": "print('Updated Code')",
+          "Language": "Python",
+          "Verified": true,
+          "CreatedAt": "2025-04-23T18:50:12.7070412+03:00",
+          "UpdatedAt": "2025-04-23T19:00:00.0000000+03:00"
+        }
+      }
+
+       ```
+
+      ---
+
+      ### 🔹 Delete Submission
+
+      **DELETE** `/api/v0/submission/:id`  
+      **Description:** Delete a submission by ID.
+
+      #### 🔧 Path Parameter
+
+      - `id` — Submission ID
+          
+
+      #### ✅ Response
+
+      ``` json
+      json{
+        "message": "Submission deleted successfully."
+      }
+
+       ```
+  - name: groups
+  - name: country
+  - name: User
+  - name: Contest
+  - name: session
+  - name: attendance
+paths:
+  /api/v0/supergroup:
+    post:
+      tags:
+        - super_group
+      summary: createASuperGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: community
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - super_group
+      summary: getAllSupperGroups
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/supergroup/search:
+    get:
+      tags:
+        - super_group
+      summary: getGroupByName
+      parameters:
+        - name: name
+          in: query
+          schema:
+            type: string
+          example: inperson
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/supergroup/{id}:
+    get:
+      tags:
+        - super_group
+      summary: getGroupByID
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - super_group
+      summary: updateGroupnamebyID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: inPerson
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - super_group
+      summary: DeleteSuperGroup
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '3'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/problem:
+    post:
+      tags:
+        - problems
+      summary: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Find Indices With Index and Value Difference I
+                difficulty: easy
+                tag: Array, Two Pointers
+                platform: leetcode
+                link: >-
+                  https://leetcode.com/problems/find-indices-with-index-and-value-difference-i/
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - problems
+      summary: getProblems
+      parameters:
+        - name: tag
+          in: query
+          schema:
+            type: string
+          example: Math
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/problem/4:
+    get:
+      tags:
+        - problems
+      summary: getByID
+      description: >-
+        # Get Problem Details
+
+
+        This endpoint retrieves the details of a specific problem by providing
+        the problem ID in the request URL.
+
+
+        ## Request
+
+
+        ### Request URL
+
+
+        `GET http://localhost:8080/api/v0/problem/4`
+
+
+        ## Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        ### Response Body
+
+
+        ``` json
+
+        {
+            "problem": {
+                "ID": 0,
+                "ContestID": null,
+                "TrackID": null,
+                "Name": "",
+                "Difficulty": "",
+                "Tag": "",
+                "Platform": "",
+                "Link": "",
+                "CreatedAt": "",
+                "UpdatedAt": "",
+                "Contest": null,
+                "Track": null
+            }
+        }
+
+         ```
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/problem/{id}:
+    put:
+      tags:
+        - problems
+      summary: update problem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ID: 40
+                ContestID: null
+                TrackID: null
+                Name: Greatest Common Divisor of Strings
+                Difficulty: easy
+                Tag: Math,String
+                Platform: leetcode
+                Link: >-
+                  https://leetcode.com/problems/greatest-common-divisor-of-strings/
+                CreatedAt: '2025-04-23T14:38:36.298197Z'
+                UpdatedAt: '2025-04-23T14:38:36.298197Z'
+                Contest: null
+                Track: null
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '4'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - problems
+      summary: Delete
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: math
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/invites:
+    post:
+      tags:
+        - invite
+      summary: Invite User
+      description: >-
+        ### API Request Description
+
+
+        This API endpoint allows the client to send an HTTP POST request to
+        create invites. The request should be sent to
+        [http://localhost:8080/api/v0/invites](http://localhost:8080/api/v0/invites)
+        with a JSON payload in the raw request body type.
+
+
+        #### Request Body
+
+
+        - `email` (string): The email of the user to whom the invite will be
+        sent.
+            
+        - `role_id` (number): The ID of the role assigned to the user.
+            
+        - `group_id` (number): The ID of the group to which the user will be
+        added.
+            
+        - `country_id` (number): The ID of the country associated with the user.
+            
+
+        ### API Response Description
+
+
+        The API responds with a status code and a JSON object in the content
+        type of application/json.
+
+
+        #### Success Response (Status: 201)
+
+
+        The successful response returns a status code of 201 and a JSON object
+        with the following structure:
+
+
+        ``` json
+
+        {
+            "message": "",
+            "data": {
+                "ID": 0,
+                "Key": "",
+                "RoleID": 0,
+                "UserID": 0,
+                "GroupID": 0,
+                "Used": true,
+                "CreatedAt": "",
+                "UpdatedAt": ""
+            },
+            "status": 0
+        }
+
+         ```
+
+        The `data` object contains the details of the created invite, including
+        the ID, role ID, user ID, group ID, and other relevant information.
+
+
+        #### Failure Response
+
+
+        In case of a failure, the API may return a different status code along
+        with an error message or specific error details.
+
+
+        ### Response
+
+
+        The response to the request is in JSON format with the following
+        structure:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "integer"
+                        },
+                        "Key": {
+                            "type": "string"
+                        },
+                        "RoleID": {
+                            "type": "integer"
+                        },
+                        "UserID": {
+                            "type": "integer"
+                        },
+                        "GroupID": {
+                            "type": "integer"
+                        },
+                        "Used": {
+                            "type": "boolean"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: bezueyerusalem@gmail.com
+                role_id: 1
+                group_id: 1
+                country_id: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/invites/batch:
+    post:
+      tags:
+        - invite
+      summary: Invite Users
+      description: >-
+        ### POST /api/v0/invites/batch
+
+
+        This endpoint is used to send batch invites to multiple users.
+
+
+        #### Request Body
+
+
+        - `emails` (array of strings) - List of email addresses to send invites
+        to.
+            
+        - `role_id` (integer) - ID of the role for the invited users.
+            
+        - `group_id` (integer) - ID of the group for the invited users.
+            
+        - `country_id` (integer) - ID of the country for the invited users.
+            
+
+        Example:
+
+
+        ``` json
+
+        {
+          "emails": ["bezueyerusalem@gmail.com"],
+          "role_id": 1,
+          "group_id": 1,
+          "country_id": 1
+        }
+
+         ```
+
+        #### Response
+
+
+        - Status: 201 Created
+            
+        - Content-Type: application/json
+            
+
+        ##### Success Response
+
+
+        ``` json
+
+        {
+          "message": "",
+          "data": [
+            {
+              "ID": 0,
+              "Key": "",
+              "RoleID": 0,
+              "UserID": 0,
+              "GroupID": 0,
+              "Used": true,
+              "CreatedAt": "",
+              "UpdatedAt": ""
+            }
+          ],
+          "status": 0
+        }
+
+         ```
+
+        ##### Failure Response
+
+
+        - Status: \[Add relevant status code\]
+            
+        - Content-Type: application/json
+            
+        - {"error": "Error message here"}
+            
+
+        This API endpoint allows the user to send a POST request to
+        [http://localhost:8080/api/v0/invites/batch](http://localhost:8080/api/v0/invites/batch)
+        in order to create invites in batch.
+
+
+        #### Request Body
+
+
+        - The request should have a raw body of type JSON.
+            
+        - The payload should include the following parameters:
+            
+            - **emails** (array of strings): An array of email addresses to which the invites will be sent.
+                
+            - **role_id** (integer): The ID of the role assigned to the invitees.
+                
+            - **group_id** (integer): The ID of the group to which the invitees will be added.
+                
+            - **country_id** (integer): The ID of the country associated with the invitees.
+                
+
+        ### Response
+
+
+        The API responds with a status code and a JSON object.
+
+
+        #### Success Response (Status: 201)
+
+
+        - **Content-Type**: application/json
+            
+        - { "message": "", "data": \[ { "ID": 0, "Key": "", "RoleID": 0,
+        "UserID": 0, "GroupID": 0, "Used": true, "CreatedAt": "", "UpdatedAt":
+        "" } \], "status": 0}
+            
+        - **data** (array of objects): Contains the details of the created
+        invites, including ID, Key, RoleID, UserID, GroupID, Used status,
+        CreatedAt, and UpdatedAt.
+            
+
+        #### Failure Response
+
+
+        - The API may respond with different status codes and error messages in
+        case of failure.
+            
+
+        ### Request Body
+
+
+        - `emails` (array of strings): An array of email addresses to which the
+        invites will be sent.
+            
+        - `role_id` (integer): The ID of the role assigned to the invited users.
+            
+        - `group_id` (integer): The ID of the group to which the invited users
+        will be added.
+            
+        - `country_id` (integer): The ID of the country associated with the
+        invited users.
+            
+
+        ### Response
+
+
+        The response of this request is a JSON schema representing the structure
+        of the response data. This schema can be used to validate the format of
+        the response data received from the API.
+
+
+        Example JSON Schema:
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string" },
+            "message": { "type": "string" }
+            // Add more properties as per the actual response data
+          }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                emails:
+                  - bezueyerusalem@gmail.com
+                  - eyerusalembezu15@gmail.com
+                role_id: 1
+                group_id: 1
+                country_id: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/invites/user:
+    post:
+      tags:
+        - invite
+      summary: Invite Existing User
+      description: |-
+        ### POST /api/v0/invites/user
+
+        This endpoint is used to send invites to users.
+
+        #### Request Body
+
+        - id (number): The ID of the user.
+            
+        - group_id (number): The ID of the group.
+            
+        - role_id (number): The ID of the role.
+            
+
+        #### Response
+
+        The response is in JSON format and follows the schema below:
+
+        ``` json
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "number"
+                        },
+                        "Key": {
+                            "type": "string"
+                        },
+                        "RoleID": {
+                            "type": "number"
+                        },
+                        "UserID": {
+                            "type": "number"
+                        },
+                        "GroupID": {
+                            "type": "number"
+                        },
+                        "Used": {
+                            "type": "boolean"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "number"
+                }
+            }
+        }
+        #### Status Code
+        - 201: Created
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 21
+                group_id: 1
+                role_id: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/invites/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU0MDUxNDgsInJvbGVfaWQiOjEsInN1YiI6MzF9.lPo_eihxtoqzghSkowpJNp5dx8oJWHobd1JWkXUO63U:
+    get:
+      tags:
+        - invite
+      summary: Accept Invite
+      description: >-
+        This endpoint makes an HTTP GET request to retrieve invite details based
+        on the provided token in the URL.
+
+
+        ### Request
+
+
+        - Method: GET
+            
+        - URL:
+        `http://localhost:8080/api/v0/invites/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU0MjAxODIsInJvbGVfaWQiOjEsInN1YiI6Mzd9.KBcEf3p97haGye1StpAU_jQouXXxanw-3jMIRhK3kas`
+            
+
+        ### Response
+
+
+        The response will have a status code of 200 for a successful request.
+        The content will be in JSON format with the following structure:
+
+
+        ``` json
+
+        {
+            "message": "",
+            "data": {
+                "ID": 0,
+                "RoleID": 0,
+                "Name": "",
+                "CountryID": 0,
+                "University": "",
+                "Email": "",
+                "Leetcode": "",
+                "Codeforces": "",
+                "Github": "",
+                "Photo": "",
+                "PreferredLanguage": "",
+                "Hackerrank": "",
+                "GroupID": 0,
+                "Phone": "",
+                "TelegramUsername": "",
+                "TelegramUID": "",
+                "Linkedin": "",
+                "StudentID": "",
+                "ShortBio": "",
+                "Instagram": "",
+                "Birthday": "",
+                "CV": "",
+                "JoinedDate": "",
+                "ExpectedGraduationDate": "",
+                "MentorName": "",
+                "TshirtColor": "",
+                "TshirtSize": "",
+                "Gender": "",
+                "CodeOfConduct": "",
+                "Password": "",
+                "CreatedAt": "",
+                "UpdatedAt": "",
+                "Config": "",
+                "Department": "",
+                "Inactive": true
+            },
+            "status": 0
+        }
+
+         ```
+
+        The `data` field contains the invite details, and the `status` field
+        indicates the status of the response.
+
+
+        In case of a failure response, the appropriate status code and error
+        message will be provided.
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "integer"
+                        },
+                        "RoleID": {
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "CountryID": {
+                            "type": "integer"
+                        },
+                        "University": {
+                            "type": "string"
+                        },
+                        "Email": {
+                            "type": "string"
+                        },
+                        "Leetcode": {
+                            "type": "string"
+                        },
+                        "Codeforces": {
+                            "type": "string"
+                        },
+                        "Github": {
+                            "type": "string"
+                        },
+                        "Photo": {
+                            "type": "string"
+                        },
+                        "PreferredLanguage": {
+                            "type": "string"
+                        },
+                        "Hackerrank": {
+                            "type": "string"
+                        },
+                        "GroupID": {
+                            "type": "integer"
+                        },
+                        "Phone": {
+                            "type": "string"
+                        },
+                        "TelegramUsername": {
+                            "type": "string"
+                        },
+                        "TelegramUID": {
+                            "type": "string"
+                        },
+                        "Linkedin": {
+                            "type": "string"
+                        },
+                        "StudentID": {
+                            "type": "string"
+                        },
+                        "ShortBio": {
+                            "type": "string"
+                        },
+                        "Instagram": {
+                            "type": "string"
+                        },
+                        "Birthday": {
+                            "type": "string"
+                        },
+                        "CV": {
+                            "type": "string"
+                        },
+                        "JoinedDate": {
+                            "type": "string"
+                        },
+                        "ExpectedGraduationDate": {
+                            "type": "string"
+                        },
+                        "MentorName": {
+                            "type": "string"
+                        },
+                        "TshirtColor": {
+                            "type": "string"
+                        },
+                        "TshirtSize": {
+                            "type": "string"
+                        },
+                        "Gender": {
+                            "type": "string"
+                        },
+                        "CodeOfConduct": {
+                            "type": "string"
+                        },
+                        "Password": {
+                            "type": "string"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        },
+                        "Config": {
+                            "type": "string"
+                        },
+                        "Department": {
+                            "type": "string"
+                        },
+                        "Inactive": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/role:
+    post:
+      tags:
+        - invite
+      summary: Add new role
+      description: >-
+        This API endpoint allows you to create a new role by sending an HTTP
+        POST request to the specified URL.
+
+
+        ### Request Body
+
+
+        The request should include a JSON payload in the raw request body type
+        with the following parameter:
+
+
+        - `type` (string): Specifies the type of the role to be created.
+            
+
+        ### Response
+
+
+        Upon successful creation of the role, the API will respond with a status
+        code of 201 and a JSON object in the response body with the following
+        structure:
+
+
+        ``` json
+
+        {
+            "message": "",
+            "data": {
+                "ID": 0,
+                "Type": "",
+                "CreatedAt": "",
+                "UpdatedAt": ""
+            },
+            "status": 0
+        }
+
+         ```
+
+        The `data` object contains the details of the newly created role,
+        including its ID, type, creation timestamp, and update timestamp.
+
+
+        ### Status Codes
+
+
+        - 201: The role was successfully created.
+            
+
+        ### Response
+
+
+        The response to this request is a JSON object with the following schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "integer"
+                        },
+                        "Type": {
+                            "type": "string"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                type: HOA
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - invite
+      summary: Get all roles
+      description: >-
+        ### GET /api/v0/role
+
+
+        This endpoint retrieves a list of roles.
+
+
+        #### Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        ##### Body
+
+
+        The response will contain a JSON object with the following fields:
+
+
+        - `message` (string): A message, if any.
+            
+        - `data` (array): An array of role objects, each containing the
+        following fields:
+            
+            - `ID` (integer): The ID of the role.
+                
+            - `Type` (string): The type of the role.
+                
+            - `CreatedAt` (string): The creation timestamp of the role.
+                
+            - `UpdatedAt` (string): The update timestamp of the role.
+                
+        - `status` (integer): The status code.
+            
+
+        ### Response
+
+
+        The response will be in JSON format with the following schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ID": {
+                                "type": "integer"
+                            },
+                            "Type": {
+                                "type": "string"
+                            },
+                            "CreatedAt": {
+                                "type": "string"
+                            },
+                            "UpdatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/role/{id}:
+    get:
+      tags:
+        - invite
+      summary: Get role by id
+      description: >-
+        This endpoint makes an HTTP GET request to retrieve role information
+        based on the provided ID. The request should include the ID of the role
+        in the URL. The response will have a status code of 200 upon successful
+        retrieval and will be in JSON format. The response body will contain a
+        message field, a data object with role details including ID, Type,
+        CreatedAt, and UpdatedAt, and a status field indicating the status of
+        the request.
+
+
+        The response of this request can be documented as a JSON schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "integer"
+                        },
+                        "Type": {
+                            "type": "string"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/track:
+    post:
+      tags:
+        - Track
+      summary: Get All Tracks
+      description: >-
+        ### Add Track
+
+
+        This endpoint allows you to add a new track.
+
+
+        **Request Body**
+
+
+        - `name` (text): The name of the track.
+            
+        - `superGroupID` (text): The ID of the super group to which the track
+        belongs.
+            
+
+        **Response**  
+
+        Upon a successful request, the server will respond with a status code of
+        200 and the following JSON data:
+
+
+        ``` json
+
+        {
+            "tracks": [
+                {
+                    "ID": 0,
+                    "Name": "",
+                    "CreatedAt": "",
+                    "UpdatedAt": "",
+                    "Active": true,
+                    "SuperGroupID": 0,
+                    "SuperGroup": {
+                        "ID": 0,
+                        "Name": "",
+                        "CreatedAt": "",
+                        "UpdatedAt": ""
+                    }
+                }
+            ]
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Problem
+                superGroupID: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - Track
+      summary: Get All Tracks
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/track/1:
+    put:
+      tags:
+        - Track
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: g11
+                superGroupID: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/submission:
+    post:
+      tags:
+        - Submissions
+      summary: POST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                problemID: 4
+                userID: 2
+                timeSpent: 120
+                tries: 3
+                inContest: 1
+                code: print('Hello, World!')
+                language: Python
+                verified: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/submission/8:
+    get:
+      tags:
+        - Submissions
+      summary: Get by ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Submissions
+      summary: Update Submission
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                problemID: 4
+                userID: 2
+                timeSpent: 150
+                tries: 4
+                inContest: 1
+                code: print('Updated Code!')
+                language: Python
+                verified: false
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/submission/problem:
+    get:
+      tags:
+        - Submissions
+      summary: Get by Problem
+      parameters:
+        - name: problemID
+          in: query
+          schema:
+            type: integer
+          example: '4'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/group:
+    get:
+      tags:
+        - groups
+      summary: Get all group
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/group/18:
+    get:
+      tags:
+        - groups
+      summary: Get group by ID
+      description: >-
+        # Group Details
+
+
+        This endpoint retrieves the details of a specific group by its ID.
+
+
+        ### Example
+
+
+        ```
+
+        GET http://localhost:8080/api/v0/group/9
+
+         ```
+
+        ### Response
+
+
+        - Status: 200
+            
+        - { "group": { "ID": 9, "Name": "Sample Group", "ShortName": "SG",
+        "Description": "This is a sample group", "HOAID": 123, "CountryID": 1,
+        "CreatedAt": "2022-01-01T12:00:00Z", "UpdatedAt":
+        "2022-01-02T10:00:00Z", "Country": { "ID": 1, "Name": "Sample Country",
+        "ShortCode": "SC", "CreatedAt": "2022-01-01T12:00:00Z", "UpdatedAt":
+        "2022-01-02T10:00:00Z" } }}
+            
+
+        This endpoint retrieves information about a specific group.
+
+
+        #### Request
+
+
+        No request body or parameters are required for this request.
+
+
+        #### Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        ##### Response Body
+
+
+        The response will contain a JSON object with the following fields:
+
+
+        - group (object)
+            
+            - ID (number): The ID of the group
+                
+            - Name (string): The name of the group
+                
+            - ShortName (string): The short name of the group
+                
+            - Description (string): The description of the group
+                
+            - HOAID (null or number): The ID of the HOA (Homeowners Association)
+                
+            - CountryID (number): The ID of the country
+                
+            - CreatedAt (string): The timestamp of creation
+                
+            - UpdatedAt (string): The timestamp of the last update
+                
+            - Country (object)
+                
+                - ID (number): The ID of the country
+                    
+                - Name (string): The name of the country
+                    
+                - ShortCode (string): The short code of the country
+                    
+                - CreatedAt (string): The timestamp of creation
+                    
+                - UpdatedAt (string): The timestamp of the last update
+                    
+
+        This endpoint allows you to add a new group.
+
+
+        #### Request Body
+
+
+        - Name (string, required): The name of the group.
+            
+        - ShortName (string, required): The short name of the group.
+            
+        - Description (string, required): A brief description of the group.
+            
+        - HOAID (string, optional): The ID of the Homeowners Association.
+            
+        - CountryID (number, required): The ID of the country.
+            
+
+        #### Response
+
+
+        Upon successful creation, the server responds with a status code of 201
+        and a JSON object containing the details of the newly created group,
+        including its ID, name, short name, description, HOAID, CountryID,
+        creation and update timestamps, and details about the associated
+        country.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/group/:
+    post:
+      tags:
+        - groups
+      summary: create group
+      description: >-
+        ### Add Group
+
+
+        This endpoint allows you to add a new group.
+
+
+        #### Request Body
+
+
+        - Name (string, required): The name of the group.
+            
+        - ShortName (string, required): The short name of the group.
+            
+        - Description (string, required): A brief description of the group.
+            
+        - HOAID (string, optional): The ID of the Homeowners Association.
+            
+        - CountryID (number, required): The ID of the country.
+            
+
+        #### Response
+
+
+        Upon successful creation, the server responds with a status code of 201
+        and a JSON object containing the details of the newly created group,
+        including its ID, name, short name, description, HOAID, CountryID,
+        creation and update timestamps, and details about the associated
+        country.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Name: Test Group
+                ShortName: TGhhhh
+                Description: This is is a test group
+                HOAID: null
+                CountryID: 2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/group/9:
+    put:
+      tags:
+        - groups
+      summary: update group by ID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                ID: 9
+                Name: Test Group1
+                ShortName: TG
+                Description: This is a test group endpoint
+                HOAID: null
+                CountryID: 2
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - groups
+      summary: Delete Group by ID
+      description: >-
+        ### Delete Group
+
+
+        This endpoint is used to delete a specific group.
+
+
+        #### Request Body
+
+
+        This request does not require a request body.
+
+
+        #### Response
+
+
+        The response will not contain a message body. The status code will
+        indicate the success or failure of the delete operation.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/country:
+    get:
+      tags:
+        - country
+      summary: Get all country
+      description: |-
+        ### GET /api/v0/country
+
+        This endpoint retrieves a list of countries.
+
+        #### Request
+
+        No request body is required for this endpoint.
+
+        #### Response
+
+        The response will be in JSON format with the following schema:
+
+        ``` json
+        {
+          "countries": [
+            {
+              "ID": "number",
+              "Name": "string",
+              "ShortCode": "string",
+              "CreatedAt": "string",
+              "UpdatedAt": "string"
+            }
+          ]
+        }
+
+         ```
+
+        This endpoint retrieves a list of countries.
+
+        #### Request
+
+        No request body is required for this endpoint.
+
+        #### Response
+
+        The response will be in JSON format with the following schema:
+
+        ``` json
+        {
+            "countries": [
+                {
+                    "ID": "number",
+                    "Name": "string",
+                    "ShortCode": "string",
+                    "CreatedAt": "string",
+                    "UpdatedAt": "string"
+                }
+            ]
+        }
+
+         ```
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - country
+      summary: Create new Country
+      description: |-
+        ### Create New Country
+
+        This endpoint allows the client to create a new country.
+
+        #### Request Body
+
+        - Name (string, required): The name of the country.
+            
+        - ShortCode (string, required): The short code of the country.
+            
+
+        #### Response
+
+        The response will be in JSON format and will have the following schema:
+
+        ``` json
+        {
+          "country": {
+            "ID": 0,
+            "Name": "",
+            "ShortCode": "",
+            "CreatedAt": "",
+            "UpdatedAt": ""
+          }
+        }
+
+         ```
+
+        #### Example
+
+        ``` json
+        {
+          "Name": "USA",
+          "ShortCode": "US"
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Name: USA
+                ShortCode: US
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/country/1:
+    get:
+      tags:
+        - country
+      summary: Get country by ID
+      description: |-
+        ### GET /api/v0/country/1
+
+        This endpoint retrieves the details of a specific country.
+
+        #### Request
+
+        No request body is required for this endpoint.
+
+        - URL
+            
+            - Type: string
+                
+            - Description: The URL for the country details.
+                
+
+        #### Response
+
+        The response will be a JSON object with the following schema:
+
+        ``` json
+        {
+          "country": {
+            "ID": number,
+            "Name": string,
+            "ShortCode": string,
+            "CreatedAt": string,
+            "UpdatedAt": string
+          }
+        }
+
+         ```
+
+        - country (object)
+            
+            - ID: The unique identifier for the country.
+                
+            - Name: The name of the country.
+                
+            - ShortCode: The short code for the country.
+                
+            - CreatedAt: The timestamp when the country record was created.
+                
+            - UpdatedAt: The timestamp when the country record was last updated.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - country
+      summary: update country by ID
+      description: >-
+        The endpoint makes an HTTP PUT request to update the details of a
+        country with ID 1. The request body should be in raw format and include
+        the "Name" and "ShortCode" fields to update the country's details.
+
+
+        ### Response
+
+
+        The response is in JSON format with a status code of 200. Below is the
+        JSON schema representing the response structure:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "country": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "ShortCode": {
+                            "type": "string"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                Name: Ethiopia1
+                ShortCode: ET
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - country
+      summary: Delete country by ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user:
+    post:
+      tags:
+        - User
+      summary: create_user
+      description: >-
+        ### Create User
+
+
+        This endpoint allows the client to create a new user.
+
+
+        #### Form-Data Parameters
+
+
+        - `AvatarURL` (file):
+            
+        - `data` (text):
+            
+
+        #### Response
+
+
+        - Status: 201
+            
+        - Content-Type: application/json
+            
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "user": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {"type": "integer"},
+                        "RoleID": {"type": "integer"},
+                        "Name": {"type": "string"},
+                        "CountryID": {"type": "integer"},
+                        "University": {"type": "string"},
+                        "Email": {"type": "string"},
+                        "Leetcode": {"type": "string"},
+                        "Codeforces": {"type": "string"},
+                        "Github": {"type": "string"},
+                        "AvatarURL": {"type": "string"},
+                        "PreferredLanguage": {"type": "string"},
+                        "Hackerrank": {"type": "string"},
+                        "GroupID": {"type": "integer"},
+                        "Phone": {"type": "string"},
+                        "TelegramUsername": {"type": "string"},
+                        "TelegramUID": {"type": "string"},
+                        "Linkedin": {"type": "string"},
+                        "StudentID": {"type": "string"},
+                        "ShortBio": {"type": "string"},
+                        "Instagram": {"type": "string"},
+                        "Birthday": {"type": "string"},
+                        "CV": {"type": "string"},
+                        "JoinedDate": {"type": "string"},
+                        "ExpectedGraduationDate": {"type": "string"},
+                        "MentorName": {"type": "string"},
+                        "TshirtColor": {"type": "string"},
+                        "TshirtSize": {"type": "string"},
+                        "Gender": {"type": "string"},
+                        "CodeOfConduct": {"type": "string"},
+                        "Password": {"type": "string"},
+                        "CreatedAt": {"type": "string"},
+                        "UpdatedAt": {"type": "string"},
+                        "Config": {"type": "string"},
+                        "Department": {"type": "string"},
+                        "Inactive": {"type": "boolean"},
+                        "Role": {
+                            "type": "object",
+                            "properties": {
+                                "ID": {"type": "integer"},
+                                "Type": {"type": "string"},
+                                "CreatedAt": {"type": "string"},
+                                "UpdatedAt": {"type": "string"}
+                            }
+                        },
+                        "Country": {
+                            "type": "object",
+                            "properties": {
+                                "ID": {"type": "integer"},
+                                "Name": {"type": "string"},
+                                "ShortCode": {"type": "string"},
+                                "CreatedAt": {"type": "string"},
+                                "UpdatedAt": {"type": "string"}
+                            }
+                        },
+                        "Group": {
+                            "type": "object",
+                            "properties": {
+                                "ID": {"type": "integer"},
+                                "Name": {"type": "string"},
+                                "ShortName": {"type": "string"},
+                                "Description": {"type": "string"},
+                                "HOAID": {"type": "integer"},
+                                "CountryID": {"type": "integer"},
+                                "CreatedAt": {"type": "string"},
+                                "UpdatedAt": {"type": "string"},
+                                "Country": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ID": {"type": "integer"},
+                                        "Name": {"type": "string"},
+                                        "ShortCode": {"type": "string"},
+                                        "CreatedAt": {"type": "string"},
+                                        "UpdatedAt": {"type": "string"}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+         ```
+
+        This endpoint allows the client to add a new user to the system.
+
+
+        #### Request Body
+
+
+        - `AvatarURL` (file): The URL of the user's avatar.
+            
+        - `data` (text): Additional data for the user.
+            
+
+        #### Response
+
+
+        Upon successful creation of the user, the server responds with a status
+        code of 201 and a JSON object containing the details of the newly
+        created user, including their ID, role, name, country, university,
+        email, and other profile information.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                RoleID: 2
+                Name: ss Abraha
+                CountryID: 1
+                University: AASTU
+                Email: ss@example.com
+                Leetcode: https://leetcode.com/semere
+                Codeforces: https://codeforces.com/profile/semere
+                Github: https://github.com/semere
+                AvatarURL: https://example.com/avatar.png
+                Photo: https://example.com/photo.jpg
+                PreferredLanguage: Go
+                Hackerrank: https://hackerrank.com/semere
+                GroupID: 1
+                Phone: '+251911223344'
+                TelegramUsername: semereTG
+                TelegramUID: '123456789'
+                Linkedin: https://linkedin.com/in/semere
+                StudentID: STU123456
+                ShortBio: >-
+                  Backend developer passionate about Golang and clean
+                  architecture.
+                Instagram: https://instagram.com/semere
+                Birthday: '2000-04-16T00:00:00Z'
+                CV: https://example.com/cv.pdf
+                JoinedDate: '2023-09-01T00:00:00Z'
+                ExpectedGraduationDate: '2026-07-30T00:00:00Z'
+                MentorName: John Doe
+                TshirtColor: Black
+                TshirtSize: M
+                Gender: male
+                CodeOfConduct: accepted
+                Password: Secure123!
+                CreatedAt: '2025-04-16T15:00:00Z'
+                UpdatedAt: '2025-04-16T15:00:00Z'
+                Config: '{}'
+                Department: Software Engineering
+                Inactive: false
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - User
+      summary: get_all_users
+      description: >-
+        This endpoint makes an HTTP GET request to retrieve user information
+        from the API.
+
+
+        ### Request
+
+
+        - Method: GET
+            
+        - URL:
+        [http://localhost:8080/api/v0/user](http://localhost:8080/api/v0/user)
+            
+
+        ### Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+        - { "message": "", "data": \[ { "id": 0, "role_id": 0, "name": "",
+        "country_id": 0, "university": "", "email": "", "AvatarURL": "",
+        "preferred_language": "", "group_id": 0, "birthday": "", "role": "",
+        "country": "" } \], "status": 0}
+            
+
+        The response contains an array of user data with fields such as id,
+        role_id, name, country_id, university, email, AvatarURL,
+        preferred_language, group_id, birthday, role, and country. The "status"
+        field indicates the status of the response. The "message" field may
+        contain additional information or messages from the server.
+
+
+        This endpoint allows you to retrieve user information.
+
+
+        ## Request
+
+
+        ### Endpoint
+
+
+        `GET`
+        [http://localhost:8080/api/v0/user](http://localhost:8080/api/v0/user)
+
+
+        ### Headers
+
+
+        No specific headers are required for this request.
+
+
+        ### Parameters
+
+
+        No parameters are required for this request.
+
+
+        ### Request Body
+
+
+        This request does not require a request body.
+
+
+        ## Response
+
+
+        ### Status
+
+
+        The response will have a status code of 200.
+
+
+        ### Headers
+
+
+        The `Content-Type` header will have a value of `application/json`.
+
+
+        ### Response Body
+
+
+        The response body will contain a JSON object with the following
+        structure:
+
+
+        ``` json
+
+        {
+            "message": "",
+            "data": [
+                {
+                    "id": 0,
+                    "role_id": 0,
+                    "name": "",
+                    "country_id": 0,
+                    "university": "",
+                    "email": "",
+                    "AvatarURL": "",
+                    "preferred_language": "",
+                    "group_id": 0,
+                    "birthday": "",
+                    "role": "",
+                    "country": ""
+                }
+            ],
+            "status": 0
+        }
+
+         ```
+
+        The `data` key contains an array of user objects, each with attributes
+        such as `id`, `role_id`, `name`, `country_id`, `university`, `email`,
+        `AvatarURL`, `preferred_language`, `group_id`, `birthday`, `role`, and
+        `country`.
+
+
+        This endpoint is used to retrieve user data.
+
+
+        #### Request
+
+
+        No request body is required for this GET request.
+
+
+        - Endpoint: `http://localhost:8080/api/v0/user`
+            
+        - Method: `GET`
+            
+
+        #### Response
+
+
+        The response will be a JSON object with the following schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "role_id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "country_id": {
+                                "type": "integer"
+                            },
+                            "university": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "AvatarURL": {
+                                "type": "string"
+                            },
+                            "preferred_language": {
+                                "type": "string"
+                            },
+                            "group_id": {
+                                "type": "integer"
+                            },
+                            "birthday": {
+                                "type": "string"
+                            },
+                            "role": {
+                                "type": "string"
+                            },
+                            "country": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user/users/group/1:
+    get:
+      tags:
+        - User
+      summary: get_users_by_group
+      description: >-
+        The API endpoint retrieves a list of users belonging to a specific
+        group. The response is a JSON object containing an array of user
+        objects, each with various attributes such as ID, RoleID, Name,
+        CountryID, University, Email, and more.
+
+
+        Here is a JSON schema representing the structure of the response:
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "users": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ID": {"type": "integer"},
+                  "RoleID": {"type": "integer"},
+                  "Name": {"type": "string"},
+                  "CountryID": {"type": "integer"},
+                  "University": {"type": "string"},
+                  "Email": {"type": "string"},
+                  "Leetcode": {"type": "string"},
+                  "Codeforces": {"type": "string"},
+                  "Github": {"type": "string"},
+                  "AvatarURL": {"type": "string"},
+                  "PreferredLanguage": {"type": "string"},
+                  "Hackerrank": {"type": "string"},
+                  "GroupID": {"type": "integer"},
+                  "Phone": {"type": "string"},
+                  "TelegramUsername": {"type": "string"},
+                  "TelegramUID": {"type": "string"},
+                  "Linkedin": {"type": "string"},
+                  "StudentID": {"type": "string"},
+                  "ShortBio": {"type": "string"},
+                  "Instagram": {"type": "string"},
+                  "Birthday": {"type": "string"},
+                  "CV": {"type": "string"},
+                  "JoinedDate": {"type": "string"},
+                  "ExpectedGraduationDate": {"type": "string"},
+                  "MentorName": {"type": "string"},
+                  "TshirtColor": {"type": "string"},
+                  "TshirtSize": {"type": "string"},
+                  "Gender": {"type": "string"},
+                  "CodeOfConduct": {"type": "string"},
+                  "Password": {"type": "string"},
+                  "CreatedAt": {"type": "string"},
+                  "UpdatedAt": {"type": "string"},
+                  "Config": {"type": "string"},
+                  "Department": {"type": "string"},
+                  "Inactive": {"type": "boolean"},
+                  "Role": {
+                    "type": "object",
+                    "properties": {
+                      "ID": {"type": "integer"},
+                      "Type": {"type": "string"},
+                      "CreatedAt": {"type": "string"},
+                      "UpdatedAt": {"type": "string"}
+                    }
+                  },
+                  "Country": {
+                    "type": "object",
+                    "properties": {
+                      "ID": {"type": "integer"},
+                      "Name": {"type": "string"},
+                      "ShortCode": {"type": "string"},
+                      "CreatedAt": {"type": "string"},
+                      "UpdatedAt": {"type": "string"}
+                    }
+                  },
+                  "Group": {
+                    "type": "object",
+                    "properties": {
+                      "ID": {"type": "integer"},
+                      "Name": {"type": "string"},
+                      "ShortName": {"type": "string"},
+                      "Description": {"type": "string"},
+                      "HOAID": {"type": "integer"},
+                      "CountryID": {"type": "integer"},
+                      "CreatedAt": {"type": "string"},
+                      "UpdatedAt": {"type": "string"},
+                      "Country": {
+                        "type": "object",
+                        "properties": {
+                          "ID": {"type": "integer"},
+                          "Name": {"type": "string"},
+                          "ShortCode": {"type": "string"},
+                          "CreatedAt": {"type": "string"},
+                          "UpdatedAt": {"type": "string"}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+         ```
+
+        ### Request Body
+
+
+        This request does not require a request body.
+
+
+        ### Response Body
+
+
+        The response will be in JSON format with a status code of 200. It will
+        contain an array of user objects, each including various details such as
+        ID, RoleID, Name, CountryID, University, Email, and more. Additionally,
+        each user object will have nested objects for Role, Country, and Group,
+        providing further details about the user's role, country, and group
+        affiliation.
+
+
+        Please note that the actual user details are masked for privacy and are
+        not visible in the response.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user/25:
+    put:
+      tags:
+        - User
+      summary: update_user
+      description: >-
+        ### Update User Details
+
+
+        This endpoint allows updating the details of a specific user.
+
+
+        #### Request Body
+
+
+        - `RoleID` (number): The ID of the user's role.
+            
+        - `Name` (string): The name of the user.
+            
+        - `CountryID` (number): The ID of the user's country.
+            
+        - `University` (string): The user's university.
+            
+        - `Email` (string): The user's email address.
+            
+        - `Leetcode` (string): The user's Leetcode profile link.
+            
+        - `Codeforces` (string): The user's Codeforces profile link.
+            
+        - `Github` (string): The user's Github profile link.
+            
+        - `AvatarURL` (string): The URL of the user's avatar.
+            
+        - `Photo` (string): The URL of the user's photo.
+            
+        - `PreferredLanguage` (string): The user's preferred programming
+        language.
+            
+        - `Hackerrank` (string): The user's Hackerrank profile link.
+            
+        - `GroupID` (number): The ID of the user's group.
+            
+        - `Phone` (string): The user's phone number.
+            
+        - `TelegramUsername` (string): The user's Telegram username.
+            
+        - `TelegramUID` (string): The user's Telegram user ID.
+            
+        - `Linkedin` (string): The user's LinkedIn profile link.
+            
+        - `StudentID` (string): The user's student ID.
+            
+        - `ShortBio` (string): A brief bio of the user.
+            
+        - `Instagram` (string): The user's Instagram profile link.
+            
+        - `Birthday` (string): The user's birthday.
+            
+        - `CV` (string): The URL of the user's CV.
+            
+        - `JoinedDate` (string): The date when the user joined.
+            
+        - `ExpectedGraduationDate` (string): The expected graduation date of the
+        user.
+            
+        - `MentorName` (string): The name of the user's mentor.
+            
+        - `TshirtColor` (string): The color of the user's T-shirt.
+            
+        - `TshirtSize` (string): The size of the user's T-shirt.
+            
+        - `Gender` (string): The gender of the user.
+            
+        - `CodeOfConduct` (string): The user's acceptance of the code of
+        conduct.
+            
+        - `Password` (string): The user's password.
+            
+        - `CreatedAt` (string): The date and time when the user was created.
+            
+        - `UpdatedAt` (string): The date and time when the user was last
+        updated.
+            
+        - `Config` (string): Additional configuration for the user.
+            
+        - `Department` (string): The user's department.
+            
+        - `Inactive` (boolean): Indicates if the user is inactive.
+            
+
+        #### Response (JSON Schema)
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "number" },
+            "message": { "type": "string" }
+          }
+        }
+
+         ```
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                AvatorURL:
+                  type: string
+                  format: binary
+                data:
+                  type: string
+                  example: |
+                    {
+                      "RoleID": 2,
+                      "Name": "qqwsrstyvk Abra222ha",
+                      "CountryID": 1,
+                      "University": "AASVTKU",
+                      "Email": "qqws1241k23yv@example.com",
+                      "Leetcode": "https://leetcode.com/semere",
+                      "Codeforces": "https://codeforces.com/profile/semere",
+                      "Github": "https://github.com/semere",
+                      "PreferredLanguage": "Go",
+                      "Hackerrank": "https://hackerrank.com/semere",
+                      "GroupID": 1,
+                      "Phone": "+251911223344",
+                      "TelegramUsername": "semereTG",
+                      "TelegramUID": "123456789",
+                      "Linkedin": "https://linkedin.com/in/semere",
+                      "StudentID": "STU123456",
+                      "ShortBio": "Backend developer passionate about Golang and clean architecture.",
+                      "Instagram": "https://instagram.com/semere",
+                      "Birthday": "2000-04-16T00:00:00Z",
+                      "CV": "https://example.com/cv.pdf",
+                      "JoinedDate": "2023-09-01T00:00:00Z",
+                      "ExpectedGraduationDate": "2026-07-30T00:00:00Z",
+                      "MentorName": "John Doe",
+                      "TshirtColor": "Black",
+                      "TshirtSize": "M",
+                      "Gender": "male",
+                      "CodeOfConduct": "accepted",
+                      "Password": "Secure123!",
+                      "CreatedAt": "2025-04-16T15:00:00Z",
+                      "UpdatedAt": "2025-04-16T15:00:00Z",
+                      "Config": "{}",
+                      "Department": "Software Engineering",
+                      "Inactive": false
+                    }
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user/7:
+    delete:
+      tags:
+        - User
+      summary: delete_user
+      description: >-
+        ### Delete User
+
+
+        This endpoint is used to delete a specific user by their ID.
+
+
+        #### Request
+
+
+        - Method: DELETE
+            
+        - URL: `http://localhost:8080/api/v0/user/7`
+            
+
+        #### Response
+
+
+        The response is in JSON format with the following schema:
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string"
+            }
+          }
+        }
+
+         ```
+
+        The response includes a status code of 500 and a JSON object with a
+        "detail" key.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user/bulk:
+    post:
+      tags:
+        - User
+      summary: mass_user_create
+      description: >-
+        This endpoint allows you to create multiple user profiles in bulk. The
+        request should be sent as an HTTP POST to
+        [http://localhost:8080/api/v0/user/bulk](http://localhost:8080/api/v0/user/bulk)
+        with the request body containing an array of user profile objects.
+
+
+        The request body should include the following parameters for each user
+        profile:
+
+
+        - role_id (Number): The role ID of the user.
+            
+        - name (String): The name of the user.
+            
+        - country_id (Number): The ID of the country the user belongs to.
+            
+        - university (String): The name of the university the user is associated
+        with.
+            
+        - email (String): The email address of the user.
+            
+        - leetcode (String): The LeetCode username of the user.
+            
+        - codeforces (String): The Codeforces username of the user.
+            
+        - github (String): The GitHub profile URL of the user.
+            
+        - AvatarURL (String): The URL of the user's avatar photo.
+            
+        - preferred_language (String): The preferred language of the user.
+            
+        - hackerrank (String): The HackerRank username of the user.
+            
+        - group_id (Number): The group ID the user belongs to.
+            
+        - phone (String): The phone number of the user.
+            
+        - telegram_username (String): The Telegram username of the user.
+            
+        - telegram_uid (String): The Telegram user ID of the user.
+            
+        - linkedin (String): The LinkedIn profile URL of the user.
+            
+        - student_id (String): The student ID of the user.
+            
+        - short_bio (String): A short bio or description of the user.
+            
+        - instagram (String): The Instagram username of the user.
+            
+        - birthday (String): The birthday of the user.
+            
+        - cv (String): The URL of the user's CV.
+            
+        - joined_date (String): The date when the user joined.
+            
+        - expected_graduation_date (String): The expected graduation date of the
+        user.
+            
+        - mentor_name (String): The name of the mentor associated with the user.
+            
+        - tshirt_color (String): The color of the user's T-shirt.
+            
+        - tshirt_size (String): The size of the user's T-shirt.
+            
+        - gender (String): The gender of the user.
+            
+        - code_of_conduct (String): The status of the user's acceptance of the
+        code of conduct.
+            
+        - password (String): The password for the user account.
+            
+        - department (String): The department the user belongs to.
+            
+
+        The response will indicate the success or failure of the bulk user
+        creation operation.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                - role_id: 1
+                  name: kghlt
+                  country_id: 10
+                  university: University A
+                  email: kghlt@example.com
+                  leetcode: alice_123
+                  codeforces: alice_cf
+                  github: https://github.com/alice
+                  AvatarURL: photo_url_1
+                  preferred_language: English
+                  hackerrank: alice_hackerrank
+                  group_id: 1
+                  phone: '+1234567890'
+                  telegram_username: alice_telegram
+                  telegram_uid: alice_telegram_uid
+                  linkedin: https://linkedin.com/in/alice
+                  student_id: '12345'
+                  short_bio: Alice's bio
+                  instagram: alice_instagram
+                  birthday: '1995-05-01T00:00:00Z'
+                  cv: cv_url
+                  joined_date: '2023-01-01T00:00:00Z'
+                  expected_graduation_date: '2025-05-01T00:00:00Z'
+                  mentor_name: Mentor A
+                  tshirt_color: Red
+                  tshirt_size: M
+                  gender: Female
+                  code_of_conduct: Accepted
+                  password: securepassword
+                  department: Computer Science
+                - role_id: 2
+                  name: tghv
+                  country_id: 10
+                  university: University B
+                  email: tgvh@example.com
+                  leetcode: bob_456
+                  codeforces: bob_cf
+                  github: https://github.com/bob
+                  AvatarURL: photo_url_2
+                  preferred_language: English
+                  hackerrank: bob_hackerrank
+                  group_id: 2
+                  phone: '+0987654321'
+                  telegram_username: bob_telegram
+                  telegram_uid: bob_telegram_uid
+                  linkedin: https://linkedin.com/in/bob
+                  student_id: '67890'
+                  short_bio: Bob's bio
+                  instagram: bob_instagram
+                  birthday: '1994-08-01T00:00:00Z'
+                  cv: cv_url
+                  joined_date: '2023-02-01T00:00:00Z'
+                  expected_graduation_date: '2025-06-01T00:00:00Z'
+                  mentor_name: Mentor B
+                  tshirt_color: Blue
+                  tshirt_size: L
+                  gender: Male
+                  code_of_conduct: Accepted
+                  password: securepassword
+                  department: Mathematics
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user/users/3/avatar:
+    post:
+      tags:
+        - User
+      summary: cloudinary_image
+      description: >-
+        ### Add User Avatar
+
+
+        This API endpoint allows the user to add or update the avatar for a
+        specific user.
+
+
+        #### Request Body
+
+
+        - `avatar` (file): The image file to be uploaded as the user's avatar.
+            
+
+        #### Response
+
+
+        Upon successful execution, the API returns a JSON object with the
+        following fields:
+
+
+        - `image_url`: The URL of the uploaded image.
+            
+        - `message`: A message indicating the status of the operation.
+            
+
+        Example:
+
+
+        ``` json
+
+        {
+            "image_url": "",
+            "message": ""
+        }
+
+         ```
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+      parameters:
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user/1:
+    get:
+      tags:
+        - User
+      summary: get_users_by_id
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/user/2/submissions:
+    get:
+      tags:
+        - User
+      summary: total_solved_problems_timespent_by_id
+      description: >-
+        The API endpoint retrieves the submissions of a specific user with ID 2.
+        The response contains a JSON object with a "message" field and a "data"
+        object. The "data" object includes an array of "submissions" with
+        various details such as submission ID, user ID, problem ID, contest ID,
+        status, time spent, code, submitted at, rank, penalty, rating, and
+        details of the user and problem associated with each submission.
+        Additionally, the "data" object includes "total_solved" and
+        "total_time_spent" fields. The "status" field indicates the status of
+        the response.
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "message": { "type": "string" },
+            "data": {
+              "type": "object",
+              "properties": {
+                "submissions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ID": { "type": "integer" },
+                      "UserID": { "type": "integer" },
+                      "ProblemID": { "type": "integer" },
+                      "ContestID": { "type": "integer" },
+                      "ContestName": { "type": "string" },
+                      "Status": { "type": "string" },
+                      "TimeSpent": { "type": "integer" },
+                      "Code": { "type": "string" },
+                      "SubmittedAt": { "type": "string" },
+                      "Rank": { "type": "integer" },
+                      "Penalty": { "type": "integer" },
+                      "Rating": { "type": "integer" },
+                      "User": {
+                        "type": "object",
+                        "properties": {
+                          // Properties of the user object
+                        }
+                      },
+                      "Problem": {
+                        "type": "object",
+                        "properties": {
+                          // Properties of the problem object
+                        }
+                      }
+                    }
+                  }
+                },
+                "total_solved": { "type": "integer" },
+                "total_time_spent": { "type": "integer" }
+              }
+            },
+            "status": { "type": "integer" }
+          }
+        }
+
+         ```
+
+        This endpoint retrieves the submissions made by a specific user with the
+        given user ID.
+
+
+        #### Request
+
+
+        - Method: GET
+            
+        - URL: `http://localhost:8080/api/v0/user/2/submissions`
+            
+
+        #### Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        ``` json
+
+        {
+            "message": "",
+            "data": {
+                "submissions": [
+                    {
+                        "ID": 0,
+                        "UserID": 0,
+                        "ProblemID": 0,
+                        "ContestID": 0,
+                        "ContestName": "",
+                        "Status": "",
+                        "TimeSpent": 0,
+                        "Code": "",
+                        "SubmittedAt": "",
+                        "Rank": 0,
+                        "Penalty": 0,
+                        "Rating": 0,
+                        "User": {
+                            "ID": 0,
+                            "RoleID": 0,
+                            "Name": "",
+                            "CountryID": 0,
+                            "University": "",
+                            "Email": "",
+                            "Leetcode": "",
+                            "Codeforces": "",
+                            "Github": "",
+                            "AvatarURL": "",
+                            "PreferredLanguage": "",
+                            "Hackerrank": "",
+                            "GroupID": 0,
+                            "Phone": "",
+                            "TelegramUsername": "",
+                            "TelegramUID": "",
+                            "Linkedin": "",
+                            "StudentID": "",
+                            "ShortBio": "",
+                            "Instagram": "",
+                            "Birthday": "",
+                            "CV": "",
+                            "JoinedDate": "",
+                            "ExpectedGraduationDate": "",
+                            "MentorName": "",
+                            "TshirtColor": "",
+                            "TshirtSize": "",
+                            "Gender": "",
+                            "CodeOfConduct": "",
+                            "Password": "",
+                            "CreatedAt": "",
+                            "UpdatedAt": "",
+                            "Config": "",
+                            "Department": "",
+                            "Inactive": true,
+                            "Role": {
+                                "ID": 0,
+                                "Type": "",
+                                "CreatedAt": "",
+                                "UpdatedAt": ""
+                            },
+                            "Country": {
+                                "ID": 0,
+                                "Name": "",
+                                "ShortCode": "",
+                                "CreatedAt": "",
+                                "UpdatedAt": ""
+                            },
+                            "Group": {
+                                "ID": 0,
+                                "Name": "",
+                                "ShortName": "",
+                                "Description": "",
+                                "HOAID": null,
+                                "CountryID": 0,
+                                "CreatedAt": "",
+                                "UpdatedAt": "",
+                                "Country": {
+                                    "ID": 0,
+                                    "Name": "",
+                                    "ShortCode": "",
+                                    "CreatedAt": "",
+                                    "UpdatedAt": ""
+                                }
+                            }
+                        },
+                        "Problem": {
+                            "ID": 0,
+                            "ContestID": null,
+                            "TrackID": null,
+                            "Name": "",
+                            "Difficulty": "",
+                            "Tag": "",
+                            "Platform": "",
+                            "Link": "",
+                            "CreatedAt": "",
+                            "UpdatedAt": "",
+                            "Contest": null,
+                            "Track": null
+                        }
+                    }
+                ],
+                "total_solved": 0,
+                "total_time_spent": 0
+            },
+            "status": 0
+        }
+
+         ```
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/auth/login:
+    post:
+      tags:
+        - User
+      summary: login
+      description: >-
+        The endpoint allows users to authenticate and obtain a token for
+        accessing protected resources. Upon successful authentication, the
+        response will include a JSON object with a token, refresh token, and
+        user information.
+
+
+        ### Response
+
+
+        The response is in JSON format with the following schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "token": {
+                            "type": "string"
+                        },
+                        "refresh_token": {
+                            "type": "string"
+                        },
+                        "user": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "role_id": {
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "country_id": {
+                                    "type": "integer"
+                                },
+                                "university": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "leetcode": {
+                                    "type": "string"
+                                },
+                                "codeforces": {
+                                    "type": "string"
+                                },
+                                "github": {
+                                    "type": "string"
+                                },
+                                "avatar_url": {
+                                    "type": "string"
+                                },
+                                "preferred_language": {
+                                    "type": "string"
+                                },
+                                "hackerrank": {
+                                    "type": "string"
+                                },
+                                "group_id": {
+                                    "type": "integer"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "telegram_username": {
+                                    "type": "string"
+                                },
+                                "linkedin": {
+                                    "type": "string"
+                                },
+                                "student_id": {
+                                    "type": "string"
+                                },
+                                "short_bio": {
+                                    "type": "string"
+                                },
+                                "instagram": {
+                                    "type": "string"
+                                },
+                                "birthday": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "type": "string"
+                                },
+                                "department": {
+                                    "type": "string"
+                                },
+                                "role": {
+                                    "type": "string"
+                                },
+                                "country": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+
+        This endpoint allows users to authenticate and obtain an access token
+        for accessing protected resources.
+
+
+        #### Request Body
+
+
+        - **email** (text) : The email address of the user.
+            
+        - **password** (text) : The password for the user's account.
+            
+
+        #### Response
+
+
+        Upon successful authentication, the server returns a JSON object with
+        the following fields:
+
+
+        - **message** : A message from the server.
+            
+        - **data** : An object containing the authentication token, refresh
+        token, and user details.
+            
+            - **token** : The access token for the authenticated user.
+                
+            - **refresh_token** : The refresh token for obtaining a new access token.
+                
+            - **user** : An object containing the user details.
+                
+                - **id** : The user's ID.
+                    
+                - **role_id** : The user's role ID.
+                    
+                - **name** : The user's name.
+                    
+                - **country_id** : The user's country ID.
+                    
+                - **university** : The user's university.
+                    
+                - **email** : The user's email address.
+                    
+                - **...** : Other user details such as social media profiles, avatar URL, preferred language, etc.
+                    
+
+        #### Example
+
+
+        ``` json
+
+        {
+            "email": "user@example.com",
+            "password": "********"
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: urji.eyasu@a2sv.org
+                password: Secure123!
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/contest:
+    get:
+      tags:
+        - Contest
+      summary: get_contest
+      description: >-
+        # Contest API
+
+
+        This API endpoint makes an HTTP GET request to retrieve contest details.
+
+
+        ## Request
+
+
+        - Method: GET
+            
+        - Endpoint: `http://localhost:8080/api/v0/contest/`
+            
+
+        ## Response
+
+
+        The response for this request is a JSON object representing the contest
+        details. Below is the JSON schema for the response:
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "contestId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "startDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "participants": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+
+         ```
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Contest
+      summary: create_contest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Trial
+                link: https://codeforces.com/gym/605683
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/contest/605683/standings:
+    get:
+      tags:
+        - Contest
+      summary: users_standings
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/session:
+    post:
+      tags:
+        - session
+      summary: Create session
+      description: >-
+        This endpoint allows you to create a new session by sending an HTTP POST
+        request to the specified URL. The request should include the session
+        details such as name, description, start time, end time, meet link,
+        location, resource link, lecturer ID, and fund ID in the request body.
+
+
+        ### Request Body
+
+
+        - `name`: (string) The name of the session.
+            
+        - `description`: (string) The description of the session.
+            
+        - `start_time`: (string) The start time of the session in ISO 8601
+        format.
+            
+        - `end_time`: (string) The end time of the session in ISO 8601 format.
+            
+        - `meet_link`: (string) The link for the meeting.
+            
+        - `location`: (string) The location of the session.
+            
+        - `resource_link`: (string) The link to additional resources.
+            
+        - `lecturer_id`: (integer) The ID of the lecturer.
+            
+        - `fund_id`: (integer) The ID of the fund.
+            
+
+        ### Response
+
+
+        Upon successful creation, the server responds with a status code 201 and
+        a JSON object containing a message, data, and status. The `data` object
+        includes the ID, name, description, start time, end time, meet link,
+        location, resource link, recording link, calendar event ID, lecturer ID,
+        fund ID, created at, and updated at timestamps.
+
+
+        The response to this request is a JSON object with the following schema:
+
+
+        ``` json
+
+        {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "ID": {
+                  "type": "integer"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                },
+                "StartTime": {
+                  "type": "string"
+                },
+                "EndTime": {
+                  "type": "string"
+                },
+                "MeetLink": {
+                  "type": "string"
+                },
+                "Location": {
+                  "type": "string"
+                },
+                "ResourceLink": {
+                  "type": "string"
+                },
+                "RecordingLink": {
+                  "type": "string"
+                },
+                "CalendarEventID": {
+                  "type": "string"
+                },
+                "LecturerID": {
+                  "type": "integer"
+                },
+                "FundID": {
+                  "type": "integer"
+                },
+                "CreatedAt": {
+                  "type": "string"
+                },
+                "UpdatedAt": {
+                  "type": "string"
+                }
+              }
+            },
+            "status": {
+              "type": "integer"
+            }
+          }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Pair programming
+                description: Pair programming session
+                start_time: '2025-04-29T18:07:00Z'
+                end_time: '2025-04-29T20:07:00Z'
+                meet_link: ''
+                location: ''
+                resource_link: here is the link
+                lecturer_id: 39
+                fund_id: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - session
+      summary: Get all session
+      description: >-
+        This endpoint retrieves session data with the option to filter by query,
+        page, limit, lecturer_id, start_time, and end_time.
+
+
+        ### Request Query Parameters
+
+
+        - `page` (optional): The page number for pagination.
+            
+        - `limit` (optional): The limit for the number of items per page.
+            
+        - `lecturer_id` (optional): Filter by lecturer ID.
+            
+        - `start_time` (optional): Filter by start time.
+            
+        - `end_time` (optional): Filter by end time.
+            
+
+        ### Response
+
+
+        The response will have a status code of 200 and a content type of
+        application/json.
+
+
+        This endpoint retrieves session details.
+
+
+        ## Request
+
+
+        ### HTTP Request
+
+
+        `GET http://localhost:8080/api/v0/session`
+
+
+        ## Response
+
+
+        - Status: 200
+            
+        - Content-Type: application/json
+            
+
+        ``` json
+
+        {
+            "message": "",
+            "data": [
+                {
+                    "ID": 0,
+                    "Name": "",
+                    "Description": "",
+                    "StartTime": "",
+                    "EndTime": "",
+                    "MeetLink": "",
+                    "Location": "",
+                    "ResourceLink": "",
+                    "RecordingLink": "",
+                    "CalendarEventID": "",
+                    "LecturerID": 0,
+                    "FundID": 0,
+                    "CreatedAt": "",
+                    "UpdatedAt": ""
+                }
+            ],
+            "status": 0
+        }
+
+         ```
+
+        The response includes an array of session details with fields such as
+        ID, Name, Description, StartTime, EndTime, MeetLink, Location,
+        ResourceLink, RecordingLink, CalendarEventID, LecturerID, FundID,
+        CreatedAt, and UpdatedAt.
+
+
+        ### Response
+
+
+        The response is in JSON format and has the following schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ID": {
+                                "type": "integer"
+                            },
+                            "Name": {
+                                "type": "string"
+                            },
+                            "Description": {
+                                "type": "string"
+                            },
+                            "StartTime": {
+                                "type": "string"
+                            },
+                            "EndTime": {
+                                "type": "string"
+                            },
+                            "MeetLink": {
+                                "type": "string"
+                            },
+                            "Location": {
+                                "type": "string"
+                            },
+                            "ResourceLink": {
+                                "type": "string"
+                            },
+                            "RecordingLink": {
+                                "type": "string"
+                            },
+                            "CalendarEventID": {
+                                "type": "string"
+                            },
+                            "LecturerID": {
+                                "type": "integer"
+                            },
+                            "FundID": {
+                                "type": "integer"
+                            },
+                            "CreatedAt": {
+                                "type": "string"
+                            },
+                            "UpdatedAt": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/session/{id}:
+    get:
+      tags:
+        - session
+      summary: Get session by id
+      description: >-
+        This endpoint retrieves session details based on the provided session
+        ID.
+
+
+        ### Response
+
+
+        The response is a JSON object with the following properties:
+
+
+        - `message` (string): A message related to the response.
+            
+        - `data` (object): An object containing the session details with the
+        following properties:
+            
+            - `ID` (number): The ID of the session.
+                
+            - `Name` (string): The name of the session.
+                
+            - `Description` (string): The description of the session.
+                
+            - `StartTime` (string): The start time of the session.
+                
+            - `EndTime` (string): The end time of the session.
+                
+            - `MeetLink` (string): The link for the session meeting.
+                
+            - `Location` (string): The location of the session.
+                
+            - `ResourceLink` (string): The link to additional resources for the session.
+                
+            - `RecordingLink` (string): The link to the recording of the session.
+                
+            - `CalendarEventID` (string): The ID of the calendar event associated with the session.
+                
+            - `LecturerID` (number): The ID of the lecturer for the session.
+                
+            - `FundID` (number): The ID of the fund associated with the session.
+                
+            - `CreatedAt` (string): The timestamp of when the session was created.
+                
+            - `UpdatedAt` (string): The timestamp of when the session was last updated.
+                
+        - `status` (number): The status code of the response.
+            
+
+        The response follows the JSON schema described above.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - session
+      summary: Update session
+      description: |-
+        ### Update Session
+
+        This endpoint is used to update a session with the provided ID.
+
+        #### Request Body
+
+        - Type: JSON
+            
+            - name (string): The name of the session.
+                
+            - description (string): The description of the session.
+                
+            - start_time (string): The start time of the session in ISO 8601 format.
+                
+            - end_time (string): The end time of the session in ISO 8601 format.
+                
+
+        #### Response
+
+        ``` json
+        {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "data": {
+              "type": "object",
+              "properties": {
+                "ID": {
+                  "type": "integer"
+                },
+                "Name": {
+                  "type": "string"
+                },
+                "Description": {
+                  "type": "string"
+                },
+                "StartTime": {
+                  "type": "string"
+                },
+                "EndTime": {
+                  "type": "string"
+                },
+                "MeetLink": {
+                  "type": "string"
+                },
+                "Location": {
+                  "type": "string"
+                },
+                "ResourceLink": {
+                  "type": "string"
+                },
+                "RecordingLink": {
+                  "type": "string"
+                },
+                "CalendarEventID": {
+                  "type": "string"
+                },
+                "LecturerID": {
+                  "type": "integer"
+                },
+                "FundID": {
+                  "type": "integer"
+                },
+                "CreatedAt": {
+                  "type": "string"
+                },
+                "UpdatedAt": {
+                  "type": "string"
+                }
+              }
+            },
+            "status": {
+              "type": "integer"
+            }
+          }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Lecture on binary search
+                description: Lecture on binary search
+                start_time: '2025-04-24T18:07:00Z'
+                end_time: '2025-04-24T20:07:00Z'
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '6'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - session
+      summary: Delete session
+      description: >-
+        ### Delete Session
+
+
+        This endpoint is used to delete a specific session identified by the
+        session ID.
+
+
+        #### Request
+
+
+        - Method: DELETE
+            
+        - URL: `http://localhost:8080/api/v0/session/:id`
+            
+
+        #### Response
+
+
+        The response of this request is a JSON schema representing the structure
+        of the response data. The JSON schema will define the expected
+        properties and their data types for the response object.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/attendance:
+    post:
+      tags:
+        - attendance
+      summary: Take attendance
+      description: >-
+        The HTTP POST request is used to submit attendance data to the specified
+        endpoint at
+        [http://localhost:8080/api/v0/attendance](http://localhost:8080/api/v0/attendance).
+
+
+        ### Request Body
+
+
+        The request should include the following parameters in the raw request
+        body type:
+
+
+        - `user_id`: The ID of the user submitting the attendance.
+            
+        - `head_id`: The ID of the head or supervisor.
+            
+        - `status`: The status of the attendance, where 1 represents 'Present',
+        2 represents 'Absent', 3 represents 'Late', and 4 represents 'Excused'.
+            
+        - `session_id`: The ID of the session for which the attendance is being
+        submitted.
+            
+        - `type`: The type of attendance, where 1 represents 'Checkin' and 0
+        represents 'Checkout'.
+            
+
+        ### Response
+
+
+        Upon a successful execution, the response will have a status code of 201
+        and a content type of application/json. The response body will contain
+        the following fields:
+
+
+        - `message`: A message related to the response.
+            
+        - `data`: An object containing the following attributes:
+            
+            - `ID`: The ID of the attendance record.
+                
+            - `UserID`: The ID of the user.
+                
+            - `HeadID`: The ID of the head or supervisor.
+                
+            - `Status`: The status of the attendance.
+                
+            - `At`: The timestamp of the attendance.
+                
+            - `CreatedAt`: The timestamp of creation.
+                
+            - `UpdatedAt`: The timestamp of the last update.
+                
+            - `SessionID`: The ID of the session.
+                
+            - `Type`: The type of attendance.
+                
+
+        Please note that the `status` and `type` parameters have specific values
+        as mentioned above.
+
+
+        This API endpoint allows you to record attendance by making an HTTP POST
+        request to the specified URL.
+
+
+        #### Request Body
+
+
+        - user_id (number): The ID of the user for whom the attendance is being
+        recorded.
+            
+        - head_id (number): The ID of the head under which the attendance is
+        being recorded.
+            
+        - status (number): The status of the attendance.
+            
+        - session_id (number): The ID of the session during which the attendance
+        is being recorded.
+            
+        - type (number): The type of attendance.
+            
+
+        #### Response
+
+
+        The response is in the form of a JSON object with the following schema:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "number"
+                        },
+                        "UserID": {
+                            "type": "number"
+                        },
+                        "HeadID": {
+                            "type": "number"
+                        },
+                        "Status": {
+                            "type": "number"
+                        },
+                        "At": {
+                            "type": "string"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        },
+                        "SessionID": {
+                            "type": "number"
+                        },
+                        "Type": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "number"
+                }
+            }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_id: 17
+                head_id: 18
+                status: 1
+                session_id: 6
+                type: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/attendance/users:
+    post:
+      tags:
+        - attendance
+      summary: Take mass attendance
+      description: >-
+        ### Attendance Users API
+
+
+        This API endpoint allows you to submit attendance for users.
+
+
+        #### Request Body
+
+
+        - `user_ids` (array of integers) - The IDs of the users for whom
+        attendance is being submitted.
+            
+        - `head_id` (integer) - The ID of the head user.
+            
+        - `status` (integer) - The status of the attendance.
+            
+        - `session_id` (integer) - The ID of the session.
+            
+        - `type` (integer) - The type of attendance.
+            
+
+        #### Response
+
+
+        The response is in JSON format and follows the schema below:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ID": {
+                                "type": "integer"
+                            },
+                            "UserID": {
+                                "type": "integer"
+                            },
+                            "HeadID": {
+                                "type": "integer"
+                            },
+                            "Status": {
+                                "type": "integer"
+                            },
+                            "At": {
+                                "type": "string"
+                            },
+                            "CreatedAt": {
+                                "type": "string"
+                            },
+                            "UpdatedAt": {
+                                "type": "string"
+                            },
+                            "SessionID": {
+                                "type": "integer"
+                            },
+                            "Type": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                user_ids:
+                  - 18
+                  - 17
+                  - 21
+                head_id: 18
+                status: 1
+                session_id: 6
+                type: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/v0/attendance/{id}:
+    get:
+      tags:
+        - attendance
+      summary: Get attendance by id
+      description: |-
+        The endpoint retrieves the attendance details for a specific ID.
+
+        The response of the request can be documented as a JSON schema:
+
+        ``` json
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "integer"
+                        },
+                        "UserID": {
+                            "type": "integer"
+                        },
+                        "HeadID": {
+                            "type": "integer"
+                        },
+                        "Status": {
+                            "type": "integer"
+                        },
+                        "At": {
+                            "type": "string"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        },
+                        "SessionID": {
+                            "type": "integer"
+                        },
+                        "Type": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '8'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - attendance
+      summary: Update attendance
+      description: >-
+        This endpoint allows you to update the attendance record for a specific
+        ID using an HTTP PUT request. The ":id" parameter in the request URL
+        should be replaced with the ID of the attendance record to be updated.
+
+
+        The request should have a raw body with the following parameters:
+
+
+        - "status" (Number): The status of the attendance.
+            
+        - "session_id" (Number): The ID of the session.
+            
+        - "type" (Number): The type of attendance.
+            
+
+        The response will have a status code of 200 and a JSON content type. The
+        response body will include a message and data object with the updated
+        attendance record details.
+
+
+        This API endpoint is used to update the attendance for a specific ID.
+
+
+        #### Request Parameters
+
+
+        - `status` (integer): The status of the attendance.
+            
+        - `session_id` (integer): The ID of the session.
+            
+        - `type` (integer): The type of the attendance.
+            
+
+        #### Response
+
+
+        The response from this endpoint follows the JSON schema below:
+
+
+        ``` json
+
+        {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ID": {
+                            "type": "integer"
+                        },
+                        "UserID": {
+                            "type": "integer"
+                        },
+                        "HeadID": {
+                            "type": "integer"
+                        },
+                        "Status": {
+                            "type": "integer"
+                        },
+                        "At": {
+                            "type": "string"
+                        },
+                        "CreatedAt": {
+                            "type": "string"
+                        },
+                        "UpdatedAt": {
+                            "type": "string"
+                        },
+                        "SessionID": {
+                            "type": "integer"
+                        },
+                        "Type": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        }
+
+         ```
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                status: 0
+                session_id: 7
+                type: 2
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '8'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - attendance
+      summary: Delete Attendance
+      description: >-
+        This API endpoint sends an HTTP DELETE request to
+        [http://localhost:8080/api/v0/attendance/:id](http://localhost:8080/api/v0/attendance/:id)
+        to delete the attendance record with the specified ID.
+
+
+        ### Response
+
+
+        The response of this request is a JSON schema representing the structure
+        of the response data. The schema will define the properties and their
+        data types that will be returned upon successful deletion of the
+        attendance record.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '6'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /collections/{collectionId}:
+    get:
+      tags:
+        - default
+      summary: swagger
+      security:
+        - apikeyAuth: []
+      parameters:
+        - name: collectionId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 24791476-b3f0bfc9-427a-48b6-9659-f26569bfed56
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

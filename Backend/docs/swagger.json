@@ -1,0 +1,1974 @@
+{
+  "collection": {
+    "info": {
+      "_postman_id": "b3f0bfc9-427a-48b6-9659-f26569bfed56",
+      "name": "A2SV_HUB_v2",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2025-04-28T14:18:58.000Z",
+      "createdAt": "2025-04-10T08:51:50.000Z",
+      "lastUpdatedBy": "24791476",
+      "uid": "24791476-b3f0bfc9-427a-48b6-9659-f26569bfed56"
+    },
+    "item": [
+      {
+        "name": "super_group",
+        "item": [
+          {
+            "name": "createASuperGroup",
+            "id": "df0469b5-081a-4527-854f-b19674ca6266",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"name\":\"community\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/supergroup",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "supergroup"],
+                "query": [
+                  {
+                    "key": "name",
+                    "value": "inperson",
+                    "disabled": true
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-df0469b5-081a-4527-854f-b19674ca6266"
+          },
+          {
+            "name": "getAllSupperGroups",
+            "id": "a1ca72d1-26ef-4278-852c-530ad549fb6a",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/supergroup",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "supergroup"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-a1ca72d1-26ef-4278-852c-530ad549fb6a"
+          },
+          {
+            "name": "getGroupByName",
+            "id": "3d5b49de-938e-4e14-a800-bc5f0c094d7b",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/supergroup/search?name=inperson",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "supergroup", "search"],
+                "query": [
+                  {
+                    "key": "name",
+                    "value": "inperson",
+                    "type": "text"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-3d5b49de-938e-4e14-a800-bc5f0c094d7b"
+          },
+          {
+            "name": "getGroupByID",
+            "id": "ab882b41-7ac1-4600-b81e-b0bb7ed0d936",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/supergroup/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "supergroup", ":id"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "1"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-ab882b41-7ac1-4600-b81e-b0bb7ed0d936"
+          },
+          {
+            "name": "updateGroupnamebyID",
+            "id": "e9647967-d191-4a1e-b30f-602d0c43a5ae",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"name\":\"inPerson\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/supergroup/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "supergroup", ":id"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "1"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-e9647967-d191-4a1e-b30f-602d0c43a5ae"
+          },
+          {
+            "name": "DeleteSuperGroup",
+            "id": "82da0d70-dc85-4f7c-b85a-be6aab685703",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/supergroup/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "supergroup", ":id"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "3"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-82da0d70-dc85-4f7c-b85a-be6aab685703"
+          }
+        ],
+        "id": "705a4288-e089-4297-82df-3e5f6d284875",
+        "uid": "24791476-705a4288-e089-4297-82df-3e5f6d284875"
+      },
+      {
+        "name": "problems",
+        "item": [
+          {
+            "name": "create",
+            "id": "1588faa8-ef36-4c6b-b282-196064dd74b3",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"name\": \"Find Indices With Index and Value Difference I\",\r\n    \"difficulty\": \"easy\",\r\n    \"tag\": \"Array, Two Pointers\",\r\n    \"platform\": \"leetcode\",\r\n    \"link\": \"https://leetcode.com/problems/find-indices-with-index-and-value-difference-i/\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/problem",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "problem"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-1588faa8-ef36-4c6b-b282-196064dd74b3"
+          },
+          {
+            "name": "getByID",
+            "id": "7ee7e4fc-65b6-407b-854b-3baab0696a40",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/problem/4",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "problem", "4"]
+              },
+              "description": "# Get Problem Details\n\nThis endpoint retrieves the details of a specific problem by providing the problem ID in the request URL.\n\n## Request\n\n### Request URL\n\n`GET http://localhost:8080/api/v0/problem/4`\n\n## Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n### Response Body\n\n``` json\n{\n    \"problem\": {\n        \"ID\": 0,\n        \"ContestID\": null,\n        \"TrackID\": null,\n        \"Name\": \"\",\n        \"Difficulty\": \"\",\n        \"Tag\": \"\",\n        \"Platform\": \"\",\n        \"Link\": \"\",\n        \"CreatedAt\": \"\",\n        \"UpdatedAt\": \"\",\n        \"Contest\": null,\n        \"Track\": null\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-7ee7e4fc-65b6-407b-854b-3baab0696a40"
+          },
+          {
+            "name": "getProblems",
+            "id": "bccd345d-88f9-4667-8bbe-d43fb4aa5a8e",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "https://a2sv-hub-52ak.onrender.com/api/v0/problem?tag=Math",
+                "protocol": "https",
+                "host": ["a2sv-hub-52ak", "onrender", "com"],
+                "path": ["api", "v0", "problem"],
+                "query": [
+                  {
+                    "key": "name",
+                    "value": "Find Indices With Index and Value Difference I",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "tag",
+                    "value": "Math"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-bccd345d-88f9-4667-8bbe-d43fb4aa5a8e"
+          },
+          {
+            "name": "update problem",
+            "id": "0aa08ddc-d18e-4e98-887a-a59879c6dca3",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n  \r\n        \"ID\": 40,\r\n        \"ContestID\": null,\r\n        \"TrackID\": null,\r\n        \"Name\": \"Greatest Common Divisor of Strings\",\r\n        \"Difficulty\": \"easy\",\r\n        \"Tag\": \"Math,String\",\r\n        \"Platform\": \"leetcode\",\r\n        \"Link\": \"https://leetcode.com/problems/greatest-common-divisor-of-strings/\",\r\n        \"CreatedAt\": \"2025-04-23T14:38:36.298197Z\",\r\n        \"UpdatedAt\": \"2025-04-23T14:38:36.298197Z\",\r\n        \"Contest\": null,\r\n        \"Track\": null\r\n}\r\n",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/problem/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "problem", ":id"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "4"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-0aa08ddc-d18e-4e98-887a-a59879c6dca3"
+          },
+          {
+            "name": "Delete",
+            "id": "b6293c66-e8fb-409b-ae9d-ba2ef360a938",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/problem/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "problem", ":id"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "math"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-b6293c66-e8fb-409b-ae9d-ba2ef360a938"
+          }
+        ],
+        "id": "26b6f464-5d35-4b13-8ca6-2a97bc355770",
+        "uid": "24791476-26b6f464-5d35-4b13-8ca6-2a97bc355770"
+      },
+      {
+        "name": "invite",
+        "item": [
+          {
+            "name": "Invite User",
+            "id": "bb059979-553c-43a7-98a5-3811221eeaa0",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"email\": \"bezueyerusalem@gmail.com\",\r\n    \"role_id\": 1,\r\n    \"group_id\": 1,\r\n    \"country_id\": 1\r\n\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/invites",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "invites"]
+              },
+              "description": "### API Request Description\n\nThis API endpoint allows the client to send an HTTP POST request to create invites. The request should be sent to [http://localhost:8080/api/v0/invites](http://localhost:8080/api/v0/invites) with a JSON payload in the raw request body type.\n\n#### Request Body\n\n- `email` (string): The email of the user to whom the invite will be sent.\n    \n- `role_id` (number): The ID of the role assigned to the user.\n    \n- `group_id` (number): The ID of the group to which the user will be added.\n    \n- `country_id` (number): The ID of the country associated with the user.\n    \n\n### API Response Description\n\nThe API responds with a status code and a JSON object in the content type of application/json.\n\n#### Success Response (Status: 201)\n\nThe successful response returns a status code of 201 and a JSON object with the following structure:\n\n``` json\n{\n    \"message\": \"\",\n    \"data\": {\n        \"ID\": 0,\n        \"Key\": \"\",\n        \"RoleID\": 0,\n        \"UserID\": 0,\n        \"GroupID\": 0,\n        \"Used\": true,\n        \"CreatedAt\": \"\",\n        \"UpdatedAt\": \"\"\n    },\n    \"status\": 0\n}\n\n ```\n\nThe `data` object contains the details of the created invite, including the ID, role ID, user ID, group ID, and other relevant information.\n\n#### Failure Response\n\nIn case of a failure, the API may return a different status code along with an error message or specific error details.\n\n### Response\n\nThe response to the request is in JSON format with the following structure:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"integer\"\n                },\n                \"Key\": {\n                    \"type\": \"string\"\n                },\n                \"RoleID\": {\n                    \"type\": \"integer\"\n                },\n                \"UserID\": {\n                    \"type\": \"integer\"\n                },\n                \"GroupID\": {\n                    \"type\": \"integer\"\n                },\n                \"Used\": {\n                    \"type\": \"boolean\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-bb059979-553c-43a7-98a5-3811221eeaa0"
+          },
+          {
+            "name": "Invite Users",
+            "id": "e2a94c3a-6971-4f93-9034-b520f95f25f3",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"emails\": [\"bezueyerusalem@gmail.com\", \"eyerusalembezu15@gmail.com\"],\r\n    \"role_id\": 1,\r\n    \"group_id\": 1,\r\n    \"country_id\": 1\r\n\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/invites/batch",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "invites", "batch"]
+              },
+              "description": "### POST /api/v0/invites/batch\n\nThis endpoint is used to send batch invites to multiple users.\n\n#### Request Body\n\n- `emails` (array of strings) - List of email addresses to send invites to.\n    \n- `role_id` (integer) - ID of the role for the invited users.\n    \n- `group_id` (integer) - ID of the group for the invited users.\n    \n- `country_id` (integer) - ID of the country for the invited users.\n    \n\nExample:\n\n``` json\n{\n  \"emails\": [\"bezueyerusalem@gmail.com\"],\n  \"role_id\": 1,\n  \"group_id\": 1,\n  \"country_id\": 1\n}\n\n ```\n\n#### Response\n\n- Status: 201 Created\n    \n- Content-Type: application/json\n    \n\n##### Success Response\n\n``` json\n{\n  \"message\": \"\",\n  \"data\": [\n    {\n      \"ID\": 0,\n      \"Key\": \"\",\n      \"RoleID\": 0,\n      \"UserID\": 0,\n      \"GroupID\": 0,\n      \"Used\": true,\n      \"CreatedAt\": \"\",\n      \"UpdatedAt\": \"\"\n    }\n  ],\n  \"status\": 0\n}\n\n ```\n\n##### Failure Response\n\n- Status: \\[Add relevant status code\\]\n    \n- Content-Type: application/json\n    \n- {\"error\": \"Error message here\"}\n    \n\nThis API endpoint allows the user to send a POST request to [http://localhost:8080/api/v0/invites/batch](http://localhost:8080/api/v0/invites/batch) in order to create invites in batch.\n\n#### Request Body\n\n- The request should have a raw body of type JSON.\n    \n- The payload should include the following parameters:\n    \n    - **emails** (array of strings): An array of email addresses to which the invites will be sent.\n        \n    - **role_id** (integer): The ID of the role assigned to the invitees.\n        \n    - **group_id** (integer): The ID of the group to which the invitees will be added.\n        \n    - **country_id** (integer): The ID of the country associated with the invitees.\n        \n\n### Response\n\nThe API responds with a status code and a JSON object.\n\n#### Success Response (Status: 201)\n\n- **Content-Type**: application/json\n    \n- { \"message\": \"\", \"data\": \\[ { \"ID\": 0, \"Key\": \"\", \"RoleID\": 0, \"UserID\": 0, \"GroupID\": 0, \"Used\": true, \"CreatedAt\": \"\", \"UpdatedAt\": \"\" } \\], \"status\": 0}\n    \n- **data** (array of objects): Contains the details of the created invites, including ID, Key, RoleID, UserID, GroupID, Used status, CreatedAt, and UpdatedAt.\n    \n\n#### Failure Response\n\n- The API may respond with different status codes and error messages in case of failure.\n    \n\n### Request Body\n\n- `emails` (array of strings): An array of email addresses to which the invites will be sent.\n    \n- `role_id` (integer): The ID of the role assigned to the invited users.\n    \n- `group_id` (integer): The ID of the group to which the invited users will be added.\n    \n- `country_id` (integer): The ID of the country associated with the invited users.\n    \n\n### Response\n\nThe response of this request is a JSON schema representing the structure of the response data. This schema can be used to validate the format of the response data received from the API.\n\nExample JSON Schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": { \"type\": \"string\" },\n    \"message\": { \"type\": \"string\" }\n    // Add more properties as per the actual response data\n  }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-e2a94c3a-6971-4f93-9034-b520f95f25f3"
+          },
+          {
+            "name": "Invite Existing User",
+            "id": "3c4c70b6-8d79-483c-be68-602f7f2453e5",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/invites/user",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "invites", "user"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-3c4c70b6-8d79-483c-be68-602f7f2453e5"
+          },
+          {
+            "name": "Accept Invite",
+            "id": "97dfb899-c72e-47b9-9122-bb006477707f",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/invites/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU0MDUxNDgsInJvbGVfaWQiOjEsInN1YiI6MzF9.lPo_eihxtoqzghSkowpJNp5dx8oJWHobd1JWkXUO63U",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": [
+                  "api",
+                  "v0",
+                  "invites",
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU0MDUxNDgsInJvbGVfaWQiOjEsInN1YiI6MzF9.lPo_eihxtoqzghSkowpJNp5dx8oJWHobd1JWkXUO63U"
+                ]
+              },
+              "description": "This endpoint makes an HTTP GET request to retrieve invite details based on the provided token in the URL.\n\n### Request\n\n- Method: GET\n    \n- URL: `http://localhost:8080/api/v0/invites/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU0MjAxODIsInJvbGVfaWQiOjEsInN1YiI6Mzd9.KBcEf3p97haGye1StpAU_jQouXXxanw-3jMIRhK3kas`\n    \n\n### Response\n\nThe response will have a status code of 200 for a successful request. The content will be in JSON format with the following structure:\n\n``` json\n{\n    \"message\": \"\",\n    \"data\": {\n        \"ID\": 0,\n        \"RoleID\": 0,\n        \"Name\": \"\",\n        \"CountryID\": 0,\n        \"University\": \"\",\n        \"Email\": \"\",\n        \"Leetcode\": \"\",\n        \"Codeforces\": \"\",\n        \"Github\": \"\",\n        \"Photo\": \"\",\n        \"PreferredLanguage\": \"\",\n        \"Hackerrank\": \"\",\n        \"GroupID\": 0,\n        \"Phone\": \"\",\n        \"TelegramUsername\": \"\",\n        \"TelegramUID\": \"\",\n        \"Linkedin\": \"\",\n        \"StudentID\": \"\",\n        \"ShortBio\": \"\",\n        \"Instagram\": \"\",\n        \"Birthday\": \"\",\n        \"CV\": \"\",\n        \"JoinedDate\": \"\",\n        \"ExpectedGraduationDate\": \"\",\n        \"MentorName\": \"\",\n        \"TshirtColor\": \"\",\n        \"TshirtSize\": \"\",\n        \"Gender\": \"\",\n        \"CodeOfConduct\": \"\",\n        \"Password\": \"\",\n        \"CreatedAt\": \"\",\n        \"UpdatedAt\": \"\",\n        \"Config\": \"\",\n        \"Department\": \"\",\n        \"Inactive\": true\n    },\n    \"status\": 0\n}\n\n ```\n\nThe `data` field contains the invite details, and the `status` field indicates the status of the response.\n\nIn case of a failure response, the appropriate status code and error message will be provided.\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"integer\"\n                },\n                \"RoleID\": {\n                    \"type\": \"integer\"\n                },\n                \"Name\": {\n                    \"type\": \"string\"\n                },\n                \"CountryID\": {\n                    \"type\": \"integer\"\n                },\n                \"University\": {\n                    \"type\": \"string\"\n                },\n                \"Email\": {\n                    \"type\": \"string\"\n                },\n                \"Leetcode\": {\n                    \"type\": \"string\"\n                },\n                \"Codeforces\": {\n                    \"type\": \"string\"\n                },\n                \"Github\": {\n                    \"type\": \"string\"\n                },\n                \"Photo\": {\n                    \"type\": \"string\"\n                },\n                \"PreferredLanguage\": {\n                    \"type\": \"string\"\n                },\n                \"Hackerrank\": {\n                    \"type\": \"string\"\n                },\n                \"GroupID\": {\n                    \"type\": \"integer\"\n                },\n                \"Phone\": {\n                    \"type\": \"string\"\n                },\n                \"TelegramUsername\": {\n                    \"type\": \"string\"\n                },\n                \"TelegramUID\": {\n                    \"type\": \"string\"\n                },\n                \"Linkedin\": {\n                    \"type\": \"string\"\n                },\n                \"StudentID\": {\n                    \"type\": \"string\"\n                },\n                \"ShortBio\": {\n                    \"type\": \"string\"\n                },\n                \"Instagram\": {\n                    \"type\": \"string\"\n                },\n                \"Birthday\": {\n                    \"type\": \"string\"\n                },\n                \"CV\": {\n                    \"type\": \"string\"\n                },\n                \"JoinedDate\": {\n                    \"type\": \"string\"\n                },\n                \"ExpectedGraduationDate\": {\n                    \"type\": \"string\"\n                },\n                \"MentorName\": {\n                    \"type\": \"string\"\n                },\n                \"TshirtColor\": {\n                    \"type\": \"string\"\n                },\n                \"TshirtSize\": {\n                    \"type\": \"string\"\n                },\n                \"Gender\": {\n                    \"type\": \"string\"\n                },\n                \"CodeOfConduct\": {\n                    \"type\": \"string\"\n                },\n                \"Password\": {\n                    \"type\": \"string\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"Config\": {\n                    \"type\": \"string\"\n                },\n                \"Department\": {\n                    \"type\": \"string\"\n                },\n                \"Inactive\": {\n                    \"type\": \"boolean\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-97dfb899-c72e-47b9-9122-bb006477707f"
+          },
+          {
+            "name": "Add new role",
+            "id": "5cab3b5d-2a21-467f-9060-21d60627306d",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"type\": \"HOA\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/role",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "role"]
+              },
+              "description": "This API endpoint allows you to create a new role by sending an HTTP POST request to the specified URL.\n\n### Request Body\n\nThe request should include a JSON payload in the raw request body type with the following parameter:\n\n- `type` (string): Specifies the type of the role to be created.\n    \n\n### Response\n\nUpon successful creation of the role, the API will respond with a status code of 201 and a JSON object in the response body with the following structure:\n\n``` json\n{\n    \"message\": \"\",\n    \"data\": {\n        \"ID\": 0,\n        \"Type\": \"\",\n        \"CreatedAt\": \"\",\n        \"UpdatedAt\": \"\"\n    },\n    \"status\": 0\n}\n\n ```\n\nThe `data` object contains the details of the newly created role, including its ID, type, creation timestamp, and update timestamp.\n\n### Status Codes\n\n- 201: The role was successfully created.\n    \n\n### Response\n\nThe response to this request is a JSON object with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"integer\"\n                },\n                \"Type\": {\n                    \"type\": \"string\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-5cab3b5d-2a21-467f-9060-21d60627306d"
+          },
+          {
+            "name": "Get all roles",
+            "id": "7c63684b-c10d-4283-b2e3-8da80e91bb42",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/role",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "role"]
+              },
+              "description": "### GET /api/v0/role\n\nThis endpoint retrieves a list of roles.\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n##### Body\n\nThe response will contain a JSON object with the following fields:\n\n- `message` (string): A message, if any.\n    \n- `data` (array): An array of role objects, each containing the following fields:\n    \n    - `ID` (integer): The ID of the role.\n        \n    - `Type` (string): The type of the role.\n        \n    - `CreatedAt` (string): The creation timestamp of the role.\n        \n    - `UpdatedAt` (string): The update timestamp of the role.\n        \n- `status` (integer): The status code.\n    \n\n### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"ID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"Type\": {\n                        \"type\": \"string\"\n                    },\n                    \"CreatedAt\": {\n                        \"type\": \"string\"\n                    },\n                    \"UpdatedAt\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-7c63684b-c10d-4283-b2e3-8da80e91bb42"
+          },
+          {
+            "name": "Get role by id",
+            "id": "4dcf8c3b-73dd-4808-b36f-679d47ad07da",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/role/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "role", ":id"],
+                "variable": [
+                  {
+                    "id": "5b63b666-1f20-47b8-ac84-bf34e519b0b1",
+                    "key": "id",
+                    "value": "1"
+                  }
+                ]
+              },
+              "description": "This endpoint makes an HTTP GET request to retrieve role information based on the provided ID. The request should include the ID of the role in the URL. The response will have a status code of 200 upon successful retrieval and will be in JSON format. The response body will contain a message field, a data object with role details including ID, Type, CreatedAt, and UpdatedAt, and a status field indicating the status of the request.\n\nThe response of this request can be documented as a JSON schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"integer\"\n                },\n                \"Type\": {\n                    \"type\": \"string\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-4dcf8c3b-73dd-4808-b36f-679d47ad07da"
+          },
+          {
+            "name": "Invite Existing User",
+            "id": "2329bd89-a96e-4e91-aaab-26578b3835a3",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"id\": 21,\r\n    \"group_id\":1,\r\n    \"role_id\":1\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/invites/user",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "invites", "user"]
+              },
+              "description": "### POST /api/v0/invites/user\n\nThis endpoint is used to send invites to users.\n\n#### Request Body\n\n- id (number): The ID of the user.\n    \n- group_id (number): The ID of the group.\n    \n- role_id (number): The ID of the role.\n    \n\n#### Response\n\nThe response is in JSON format and follows the schema below:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"number\"\n                },\n                \"Key\": {\n                    \"type\": \"string\"\n                },\n                \"RoleID\": {\n                    \"type\": \"number\"\n                },\n                \"UserID\": {\n                    \"type\": \"number\"\n                },\n                \"GroupID\": {\n                    \"type\": \"number\"\n                },\n                \"Used\": {\n                    \"type\": \"boolean\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"number\"\n        }\n    }\n}\n#### Status Code\n- 201: Created\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-2329bd89-a96e-4e91-aaab-26578b3835a3"
+          }
+        ],
+        "id": "bccaaed6-3ac2-48e2-b90f-189b563ca2f0",
+        "uid": "24791476-bccaaed6-3ac2-48e2-b90f-189b563ca2f0"
+      },
+      {
+        "name": "Track",
+        "item": [
+          {
+            "name": "Get All Tracks",
+            "id": "ab39733d-b222-4ef0-b36f-c6ad20195ac7",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"name\": \"Problem\",\r\n    \"superGroupID\": 1\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/track",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "track"]
+              },
+              "description": "### Add Track\n\nThis endpoint allows you to add a new track.\n\n**Request Body**\n\n- `name` (text): The name of the track.\n    \n- `superGroupID` (text): The ID of the super group to which the track belongs.\n    \n\n**Response**  \nUpon a successful request, the server will respond with a status code of 200 and the following JSON data:\n\n``` json\n{\n    \"tracks\": [\n        {\n            \"ID\": 0,\n            \"Name\": \"\",\n            \"CreatedAt\": \"\",\n            \"UpdatedAt\": \"\",\n            \"Active\": true,\n            \"SuperGroupID\": 0,\n            \"SuperGroup\": {\n                \"ID\": 0,\n                \"Name\": \"\",\n                \"CreatedAt\": \"\",\n                \"UpdatedAt\": \"\"\n            }\n        }\n    ]\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-ab39733d-b222-4ef0-b36f-c6ad20195ac7"
+          },
+          {
+            "name": "Get All Tracks",
+            "id": "53319e5d-3dd6-4892-870a-6ab3eb1bbf99",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/track",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "track"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-53319e5d-3dd6-4892-870a-6ab3eb1bbf99"
+          },
+          {
+            "name": "Update",
+            "id": "5228729c-9560-473a-9353-df72fc755c4f",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"name\": \"g11\",\r\n    \"superGroupID\": 1\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/track/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "track", "1"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-5228729c-9560-473a-9353-df72fc755c4f"
+          }
+        ],
+        "id": "97e1d599-5bdd-42e9-9a8f-d30ac9f8f48a",
+        "description": "StartFragment\n\n#### 1\\. Get All Tracks\n\n- **Endpoint Name:** Get all tracks\n    \n- **Method & URL:** `GET /api/v0/track`\n    \n- **Headers:** None required\n    \n- **Response Example:**\n    \n\n``` json\njson[\n  {\n    \"ID\": 1,\n    \"Name\": \"Exercise\",\n    \"Description\": \"Get exercise problems\"\n  },\n  {\n    \"ID\": 2,\n    \"Name\": \"Practice\",\n    \"Description\": \"Practice problems\"\n  }\n]\n\n ```\n\n---\n\n#### 2\\. Create a Track\n\n- **Endpoint Name:** Create a new track\n    \n- **Method & URL:** `POST /api/v0/track`\n    \n- **Headers:**\n    \n    - `Content-Type: application/json`\n        \n- **Request Body:**\n    \n\n```\njson{\n  \"name\": \"AI\",\n  \"description\": \"Track focused on artificial intelligence\"\n}\n\n ```\n\n- **Success Response:**\n    \n\n```\njsonCopy{\n  \"message\": \"Track created successfully.\",\n  \"track\": {\n    \"ID\": 3,\n    \"Name\": \"AI\",\n    \"Description\": \"Track focused on artificial intelligence\"\n  }\n}\n\n ```\n\n---\n\n#### 3\\. Get Track by ID\n\n- **Endpoint Name:** Get a track by ID\n    \n- **Method & URL:** `GET /api/v0/track/:id`\n    \n- **Path Parameters:**\n    \n    - `id` (int) – Track ID\n        \n- **Success Response:**\n    \n\n``` json\njson{\n  \"ID\": 1,\n  \"Name\": \"Backend\",\n  \"Description\": \"Track focused on server-side development\"\n}\n\n ```\n\n---\n\n#### 4\\. Search Tracks by Name\n\n- **Endpoint Name:** Search tracks by name\n    \n- **Method & URL:** `GET /api/v0/track/search?name=Backend`\n    \n- **Query Parameters:**\n    \n    - `name` (string) – Track name to search\n        \n- **Success Response:** Same as \"Get All Tracks\" but filtered\n    \n\n---\n\n#### 5\\. Update Track\n\n- **Endpoint Name:** Update an existing track\n    \n- **Method & URL:** `PUT /api/v0/track/:id`\n    \n- **Headers:**\n    \n    - `Content-Type: application/json`\n        \n- **Path Parameters:** `id` (Track ID)\n    \n- **Request Body:**\n    \n\n``` json\njson{\n  \"name\": \"Updated Name\",\n  \"description\": \"Updated description\"\n}\n\n ```\n\n- **Success Response:**\n    \n\n``` json\njson{\n  \"message\": \"Track updated successfully.\",\n  \"track\": {\n    \"ID\": 1,\n    \"Name\": \"Updated Name\",\n    \"Description\": \"Updated description\"\n  }\n}\n\n ```\n\n---\n\n#### 6\\. Delete Track\n\n- **Endpoint Name:** Delete a track\n    \n- **Method & URL:** `DELETE /api/v0/track/:id`\n    \n- **Path Parameters:** `id` (Track ID)\n    \n- **Success Response:**\n    \n\n``` go\njson{\n  \"message\": \"Track deleted successfully.\"\n}\n\n ```",
+        "uid": "24791476-97e1d599-5bdd-42e9-9a8f-d30ac9f8f48a"
+      },
+      {
+        "name": "Submissions",
+        "item": [
+          {
+            "name": "POST",
+            "id": "b7d7c7ac-6b49-4bb9-9729-7a4d50a3c6c7",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"problemID\": 4,\r\n    \"userID\": 2,\r\n    \"timeSpent\": 120,\r\n    \"tries\": 3,\r\n    \"inContest\": 1,\r\n    \"code\": \"print('Hello, World!')\",\r\n    \"language\": \"Python\",\r\n    \"verified\": true\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/submission",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "submission"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-b7d7c7ac-6b49-4bb9-9729-7a4d50a3c6c7"
+          },
+          {
+            "name": "Get by ID",
+            "id": "06825588-54bc-49a4-ae83-7c91e1a70930",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"id\": 8\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/submission/8",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "submission", "8"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-06825588-54bc-49a4-ae83-7c91e1a70930"
+          },
+          {
+            "name": "Get by Problem",
+            "id": "aa7a5f42-53ac-405d-a5ab-32f57158b1e6",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/submission/problem?problemID=4",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "submission", "problem"],
+                "query": [
+                  {
+                    "key": "problemID",
+                    "value": "4"
+                  }
+                ]
+              }
+            },
+            "response": [],
+            "uid": "24791476-aa7a5f42-53ac-405d-a5ab-32f57158b1e6"
+          },
+          {
+            "name": "Update Submission",
+            "id": "10fb8a17-9ef2-45dd-9802-54cf8fb47786",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"problemID\": 4,\r\n    \"userID\": 2,\r\n    \"timeSpent\": 150,\r\n    \"tries\": 4,\r\n    \"inContest\": 1,\r\n    \"code\": \"print('Updated Code!')\",\r\n    \"language\": \"Python\",\r\n    \"verified\": false\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/submission/8",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "submission", "8"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-10fb8a17-9ef2-45dd-9802-54cf8fb47786"
+          }
+        ],
+        "id": "cf118fea-e759-4703-8df9-0e2dd1f8767a",
+        "description": "## Submission Endpoints\n\n### 🔹 Create Submission\n\n**POST** `/api/v0/submission`  \n**Description:** Create a new submission.\n\n#### 🧾 Headers\n\n- `Content-Type: application/json`\n    \n\n#### 🧾 Request Body\n\n``` json\njson{\n  \"problemID\": 4,\n  \"userID\": 2,\n  \"timeSpent\": 120,\n  \"tries\": 3,\n  \"inContest\": 1,\n  \"code\": \"print('Hello, World!')\",\n  \"language\": \"Python\",\n  \"verified\": true\n}\n\n ```\n\n#### ✅ Response\n\n``` json\njson{\n  \"message\": \"Submission created successfully.\",\n  \"submission\": {\n    \"ID\": 8,\n    \"ProblemID\": 4,\n    \"UserID\": 2,\n    \"TimeSpent\": 120,\n    \"Tries\": 3,\n    \"InContest\": 1,\n    \"Code\": \"print('Hello, World!')\",\n    \"Language\": \"Python\",\n    \"Verified\": true,\n    \"CreatedAt\": \"2025-04-23T18:50:12.7070412+03:00\",\n    \"UpdatedAt\": \"2025-04-23T18:50:12.7070412+03:00\"\n  }\n}\n\n ```\n\n---\n\n### 🔹 Get Submission by ID\n\n**GET** `/api/v0/submission/:id`  \n**Description:** Get a submission by ID.\n\n#### 🔧 Path Parameter\n\n- `id` — Submission ID\n    \n\n#### ✅ Response\n\n``` json\njson{\n  \"ID\": 8,\n  \"ProblemID\": 4,\n  \"UserID\": 2,\n  \"TimeSpent\": 120,\n  \"Tries\": 3,\n  \"InContest\": 1,\n  \"Code\": \"print('Hello, World!')\",\n  \"Language\": \"Python\",\n  \"Verified\": true,\n  \"CreatedAt\": \"2025-04-23T18:50:12.7070412+03:00\",\n  \"UpdatedAt\": \"2025-04-23T18:50:12.7070412+03:00\"\n}\n\n ```\n\n---\n\n### 🔹 Get Submissions by Problem\n\n**GET** `/api/v0/submission/problem?problemID=4`  \n**Description:** Get all submissions for a specific problem.\n\n#### 🔎 Query Parameter\n\n- `problemID` — ID of the problem\n    \n\n#### ✅ Response\n\n``` json\njson[\n  {\n    \"ID\": 5,\n    \"ProblemID\": 4,\n    \"UserID\": 2,\n    \"TimeSpent\": 100,\n    \"Tries\": 2,\n    \"InContest\": 1,\n    \"Code\": \"print('Test')\",\n    \"Language\": \"Python\",\n    \"Verified\": true,\n    \"CreatedAt\": \"2025-04-23T17:30:00.000Z\",\n    \"UpdatedAt\": \"2025-04-23T17:30:00.000Z\"\n  }\n]\n\n ```\n\n---\n\n### 🔹 Update Submission\n\n**PUT** `/api/v0/submission/:id`  \n**Description:** Update an existing submission.\n\n#### 🔧 Path Parameter\n\n- `id` — Submission ID\n    \n\n#### 🧾 Request Body\n\n```\njsonCopy code{\n  \"problemID\": 4,\n  \"userID\": 2,\n  \"timeSpent\": 140,\n  \"tries\": 4,\n  \"inContest\": 1,\n  \"code\": \"print('Updated Code')\",\n  \"language\": \"Python\",\n  \"verified\": true\n}\n\n ```\n\n#### ✅ Response\n\n``` json\njson{\n  \"message\": \"Submission updated successfully.\",\n  \"submission\": {\n    \"ID\": 8,\n    \"ProblemID\": 4,\n    \"UserID\": 2,\n    \"TimeSpent\": 140,\n    \"Tries\": 4,\n    \"InContest\": 1,\n    \"Code\": \"print('Updated Code')\",\n    \"Language\": \"Python\",\n    \"Verified\": true,\n    \"CreatedAt\": \"2025-04-23T18:50:12.7070412+03:00\",\n    \"UpdatedAt\": \"2025-04-23T19:00:00.0000000+03:00\"\n  }\n}\n\n ```\n\n---\n\n### 🔹 Delete Submission\n\n**DELETE** `/api/v0/submission/:id`  \n**Description:** Delete a submission by ID.\n\n#### 🔧 Path Parameter\n\n- `id` — Submission ID\n    \n\n#### ✅ Response\n\n``` json\njson{\n  \"message\": \"Submission deleted successfully.\"\n}\n\n ```",
+        "uid": "24791476-cf118fea-e759-4703-8df9-0e2dd1f8767a"
+      },
+      {
+        "name": "groups",
+        "item": [
+          {
+            "name": "Get all group",
+            "id": "469064d6-ab55-4f29-ae89-9c1488587776",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/group",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "group"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-469064d6-ab55-4f29-ae89-9c1488587776"
+          },
+          {
+            "name": "Get group by ID",
+            "id": "b97ca8b6-544c-458d-94ca-f53e0592365f",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/group/18",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "group", "18"]
+              },
+              "description": "# Group Details\n\nThis endpoint retrieves the details of a specific group by its ID.\n\n### Example\n\n```\nGET http://localhost:8080/api/v0/group/9\n\n ```\n\n### Response\n\n- Status: 200\n    \n- { \"group\": { \"ID\": 9, \"Name\": \"Sample Group\", \"ShortName\": \"SG\", \"Description\": \"This is a sample group\", \"HOAID\": 123, \"CountryID\": 1, \"CreatedAt\": \"2022-01-01T12:00:00Z\", \"UpdatedAt\": \"2022-01-02T10:00:00Z\", \"Country\": { \"ID\": 1, \"Name\": \"Sample Country\", \"ShortCode\": \"SC\", \"CreatedAt\": \"2022-01-01T12:00:00Z\", \"UpdatedAt\": \"2022-01-02T10:00:00Z\" } }}\n    \n\nThis endpoint retrieves information about a specific group.\n\n#### Request\n\nNo request body or parameters are required for this request.\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n##### Response Body\n\nThe response will contain a JSON object with the following fields:\n\n- group (object)\n    \n    - ID (number): The ID of the group\n        \n    - Name (string): The name of the group\n        \n    - ShortName (string): The short name of the group\n        \n    - Description (string): The description of the group\n        \n    - HOAID (null or number): The ID of the HOA (Homeowners Association)\n        \n    - CountryID (number): The ID of the country\n        \n    - CreatedAt (string): The timestamp of creation\n        \n    - UpdatedAt (string): The timestamp of the last update\n        \n    - Country (object)\n        \n        - ID (number): The ID of the country\n            \n        - Name (string): The name of the country\n            \n        - ShortCode (string): The short code of the country\n            \n        - CreatedAt (string): The timestamp of creation\n            \n        - UpdatedAt (string): The timestamp of the last update\n            \n\nThis endpoint allows you to add a new group.\n\n#### Request Body\n\n- Name (string, required): The name of the group.\n    \n- ShortName (string, required): The short name of the group.\n    \n- Description (string, required): A brief description of the group.\n    \n- HOAID (string, optional): The ID of the Homeowners Association.\n    \n- CountryID (number, required): The ID of the country.\n    \n\n#### Response\n\nUpon successful creation, the server responds with a status code of 201 and a JSON object containing the details of the newly created group, including its ID, name, short name, description, HOAID, CountryID, creation and update timestamps, and details about the associated country."
+            },
+            "response": [],
+            "uid": "24791476-b97ca8b6-544c-458d-94ca-f53e0592365f"
+          },
+          {
+            "name": "create group",
+            "id": "cf829f3f-6662-4001-b599-eabff5cbea04",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"Name\": \"Test Group\",\r\n    \"ShortName\": \"TGhhhh\",\r\n    \"Description\": \"This is is a test group\",\r\n    \"HOAID\": null,\r\n    \"CountryID\": 2\r\n\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/group/",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "group", ""]
+              },
+              "description": "### Add Group\n\nThis endpoint allows you to add a new group.\n\n#### Request Body\n\n- Name (string, required): The name of the group.\n    \n- ShortName (string, required): The short name of the group.\n    \n- Description (string, required): A brief description of the group.\n    \n- HOAID (string, optional): The ID of the Homeowners Association.\n    \n- CountryID (number, required): The ID of the country.\n    \n\n#### Response\n\nUpon successful creation, the server responds with a status code of 201 and a JSON object containing the details of the newly created group, including its ID, name, short name, description, HOAID, CountryID, creation and update timestamps, and details about the associated country."
+            },
+            "response": [],
+            "uid": "24791476-cf829f3f-6662-4001-b599-eabff5cbea04"
+          },
+          {
+            "name": "update group by ID",
+            "id": "3ad3b35c-4022-4923-b71d-85ede0b64f14",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"ID\": 9,\r\n    \"Name\": \"Test Group1\",\r\n    \"ShortName\": \"TG\",\r\n    \"Description\": \"This is a test group endpoint\",\r\n    \"HOAID\": null,\r\n    \"CountryID\": 2\r\n}\r\n",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/group/9",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "group", "9"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-3ad3b35c-4022-4923-b71d-85ede0b64f14"
+          },
+          {
+            "name": "Delete Group by ID",
+            "id": "a1d2288c-0e4f-42df-b7ac-bc48c63f2b65",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/group/9",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "group", "9"]
+              },
+              "description": "### Delete Group\n\nThis endpoint is used to delete a specific group.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\nThe response will not contain a message body. The status code will indicate the success or failure of the delete operation."
+            },
+            "response": [],
+            "uid": "24791476-a1d2288c-0e4f-42df-b7ac-bc48c63f2b65"
+          }
+        ],
+        "id": "ef5e8668-dbd2-485f-9682-8496a2c0a12f",
+        "uid": "24791476-ef5e8668-dbd2-485f-9682-8496a2c0a12f"
+      },
+      {
+        "name": "country",
+        "item": [
+          {
+            "name": "Get all country",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Response status code is 200\", function () {\r",
+                    "  pm.response.to.have.status(200);\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "pm.test(\"Content-Type header is application/json\", function () {\r",
+                    "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "pm.test(\"Countries array structure is valid\", function () {\r",
+                    "    const responseData = pm.response.json();\r",
+                    "    \r",
+                    "    pm.expect(responseData).to.be.an('object');\r",
+                    "    pm.expect(responseData.countries).to.be.an('array');\r",
+                    "    pm.expect(responseData.countries).to.not.be.empty;\r",
+                    "    responseData.countries.forEach(function(country) {\r",
+                    "        pm.expect(country).to.have.property('ID').that.is.a('number');\r",
+                    "        pm.expect(country).to.have.property('Name').that.is.a('string');\r",
+                    "        pm.expect(country).to.have.property('ShortCode').that.is.a('string');\r",
+                    "        pm.expect(country).to.have.property('CreatedAt').that.is.a('string');\r",
+                    "        pm.expect(country).to.have.property('UpdatedAt').that.is.a('string');\r",
+                    "    });\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "pm.test(\"Check if the fields are present and non-empty in at least one object within the 'countries' array\", function () {\r",
+                    "  const responseData = pm.response.json();\r",
+                    "  \r",
+                    "  pm.expect(responseData).to.be.an('object');\r",
+                    "  pm.expect(responseData.countries).to.be.an('array').that.is.not.empty;\r",
+                    "\r",
+                    "  responseData.countries.forEach(function(country) {\r",
+                    "    pm.expect(country.ID).to.exist.and.to.not.be.empty;\r",
+                    "    pm.expect(country.Name).to.exist.and.to.not.be.empty;\r",
+                    "    pm.expect(country.ShortCode).to.exist.and.to.not.be.empty;\r",
+                    "    pm.expect(country.CreatedAt).to.exist.and.to.not.be.empty;\r",
+                    "    pm.expect(country.UpdatedAt).to.exist.and.to.not.be.empty;\r",
+                    "  });\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "pm.test(\"Response time is less than 200ms\", function () {\r",
+                    "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                    "});\r",
+                    ""
+                  ],
+                  "type": "text/javascript",
+                  "packages": {},
+                  "id": "e35e0051-6502-495e-866b-3aa8c7a310f0"
+                }
+              }
+            ],
+            "id": "a2e8d6e5-dc37-4f54-a6b5-e887ef6fc572",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/country",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "country"]
+              },
+              "description": "### GET /api/v0/country\n\nThis endpoint retrieves a list of countries.\n\n#### Request\n\nNo request body is required for this endpoint.\n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n  \"countries\": [\n    {\n      \"ID\": \"number\",\n      \"Name\": \"string\",\n      \"ShortCode\": \"string\",\n      \"CreatedAt\": \"string\",\n      \"UpdatedAt\": \"string\"\n    }\n  ]\n}\n\n ```\n\nThis endpoint retrieves a list of countries.\n\n#### Request\n\nNo request body is required for this endpoint.\n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"countries\": [\n        {\n            \"ID\": \"number\",\n            \"Name\": \"string\",\n            \"ShortCode\": \"string\",\n            \"CreatedAt\": \"string\",\n            \"UpdatedAt\": \"string\"\n        }\n    ]\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-a2e8d6e5-dc37-4f54-a6b5-e887ef6fc572"
+          },
+          {
+            "name": "Create new Country",
+            "id": "db3ea1f8-35ae-4b74-b342-68b53d206095",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"Name\": \"USA\",\r\n    \"ShortCode\": \"US\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/country",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "country"]
+              },
+              "description": "### Create New Country\n\nThis endpoint allows the client to create a new country.\n\n#### Request Body\n\n- Name (string, required): The name of the country.\n    \n- ShortCode (string, required): The short code of the country.\n    \n\n#### Response\n\nThe response will be in JSON format and will have the following schema:\n\n``` json\n{\n  \"country\": {\n    \"ID\": 0,\n    \"Name\": \"\",\n    \"ShortCode\": \"\",\n    \"CreatedAt\": \"\",\n    \"UpdatedAt\": \"\"\n  }\n}\n\n ```\n\n#### Example\n\n``` json\n{\n  \"Name\": \"USA\",\n  \"ShortCode\": \"US\"\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-db3ea1f8-35ae-4b74-b342-68b53d206095"
+          },
+          {
+            "name": "Get country by ID",
+            "id": "d790f31e-8c7f-4d02-afdb-f821f83248b4",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/country/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "country", "1"]
+              },
+              "description": "### GET /api/v0/country/1\n\nThis endpoint retrieves the details of a specific country.\n\n#### Request\n\nNo request body is required for this endpoint.\n\n- URL\n    \n    - Type: string\n        \n    - Description: The URL for the country details.\n        \n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n  \"country\": {\n    \"ID\": number,\n    \"Name\": string,\n    \"ShortCode\": string,\n    \"CreatedAt\": string,\n    \"UpdatedAt\": string\n  }\n}\n\n ```\n\n- country (object)\n    \n    - ID: The unique identifier for the country.\n        \n    - Name: The name of the country.\n        \n    - ShortCode: The short code for the country.\n        \n    - CreatedAt: The timestamp when the country record was created.\n        \n    - UpdatedAt: The timestamp when the country record was last updated."
+            },
+            "response": [],
+            "uid": "24791476-d790f31e-8c7f-4d02-afdb-f821f83248b4"
+          },
+          {
+            "name": "update country by ID",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "// Stores the country ID in an environment or global variable\r",
+                    "var countryId = pm.response.json().country.ID;\r",
+                    "pm.globals.set(\"countryId\", countryId);\r",
+                    "\r",
+                    "pm.test(\"Response status code is 200\", function () {\r",
+                    "  pm.response.to.have.status(200);\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "pm.test(\"Content-Type is application/json\", function () {\r",
+                    "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "pm.test(\"Country ID should not be zero\", function () {\r",
+                    "    const responseData = pm.response.json();\r",
+                    "\r",
+                    "    pm.expect(responseData.country.ID).to.not.equal(0);\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "pm.test(\"Response time is less than 200ms\", function () {\r",
+                    "  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                    "});\r",
+                    "\r",
+                    ""
+                  ],
+                  "type": "text/javascript",
+                  "packages": {},
+                  "id": "f9d7a30b-eec2-4916-977c-ab2ff756301e"
+                }
+              }
+            ],
+            "id": "6c3b55e6-7d42-4ff2-a87b-e618cfd0ce8d",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"Name\": \"Ethiopia1\",\r\n    \"ShortCode\": \"ET\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/country/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "country", "1"]
+              },
+              "description": "The endpoint makes an HTTP PUT request to update the details of a country with ID 1. The request body should be in raw format and include the \"Name\" and \"ShortCode\" fields to update the country's details.\n\n### Response\n\nThe response is in JSON format with a status code of 200. Below is the JSON schema representing the response structure:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"country\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"integer\"\n                },\n                \"Name\": {\n                    \"type\": \"string\"\n                },\n                \"ShortCode\": {\n                    \"type\": \"string\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                }\n            }\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-6c3b55e6-7d42-4ff2-a87b-e618cfd0ce8d"
+          },
+          {
+            "name": "Delete country by ID",
+            "id": "8571b65e-49e8-4cfc-b5ca-57065fc7b939",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"Name\": \"USA\",\r\n    \"ShortCode\": \"US\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/country/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "country", "1"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-8571b65e-49e8-4cfc-b5ca-57065fc7b939"
+          }
+        ],
+        "id": "d4402a47-a35c-4fa3-96e3-0366b2728377",
+        "uid": "24791476-d4402a47-a35c-4fa3-96e3-0366b2728377"
+      },
+      {
+        "name": "User",
+        "item": [
+          {
+            "name": "create_user",
+            "id": "670f66ba-ea73-4f5d-8e69-afb3c63312c3",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n  \"RoleID\": 2,\r\n  \"Name\": \"ss Abraha\",\r\n  \"CountryID\": 1,\r\n  \"University\": \"AASTU\",\r\n  \"Email\": \"ss@example.com\",\r\n  \"Leetcode\": \"https://leetcode.com/semere\",\r\n  \"Codeforces\": \"https://codeforces.com/profile/semere\",\r\n  \"Github\": \"https://github.com/semere\",\r\n  \"AvatarURL\": \"https://example.com/avatar.png\",\r\n  \"Photo\": \"https://example.com/photo.jpg\",\r\n  \"PreferredLanguage\": \"Go\",\r\n  \"Hackerrank\": \"https://hackerrank.com/semere\",\r\n  \"GroupID\": 1,\r\n  \"Phone\": \"+251911223344\",\r\n  \"TelegramUsername\": \"semereTG\",\r\n  \"TelegramUID\": \"123456789\",\r\n  \"Linkedin\": \"https://linkedin.com/in/semere\",\r\n  \"StudentID\": \"STU123456\",\r\n  \"ShortBio\": \"Backend developer passionate about Golang and clean architecture.\",\r\n  \"Instagram\": \"https://instagram.com/semere\",\r\n  \"Birthday\": \"2000-04-16T00:00:00Z\",\r\n  \"CV\": \"https://example.com/cv.pdf\",\r\n  \"JoinedDate\": \"2023-09-01T00:00:00Z\",\r\n  \"ExpectedGraduationDate\": \"2026-07-30T00:00:00Z\",\r\n  \"MentorName\": \"John Doe\",\r\n  \"TshirtColor\": \"Black\",\r\n  \"TshirtSize\": \"M\",\r\n  \"Gender\": \"male\",\r\n  \"CodeOfConduct\": \"accepted\",\r\n  \"Password\": \"Secure123!\",\r\n  \"CreatedAt\": \"2025-04-16T15:00:00Z\",\r\n  \"UpdatedAt\": \"2025-04-16T15:00:00Z\",\r\n  \"Config\": \"{}\",\r\n  \"Department\": \"Software Engineering\",\r\n  \"Inactive\": false\r\n}\r\n",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user"]
+              },
+              "description": "### Create User\n\nThis endpoint allows the client to create a new user.\n\n#### Form-Data Parameters\n\n- `AvatarURL` (file):\n    \n- `data` (text):\n    \n\n#### Response\n\n- Status: 201\n    \n- Content-Type: application/json\n    \n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"user\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\"type\": \"integer\"},\n                \"RoleID\": {\"type\": \"integer\"},\n                \"Name\": {\"type\": \"string\"},\n                \"CountryID\": {\"type\": \"integer\"},\n                \"University\": {\"type\": \"string\"},\n                \"Email\": {\"type\": \"string\"},\n                \"Leetcode\": {\"type\": \"string\"},\n                \"Codeforces\": {\"type\": \"string\"},\n                \"Github\": {\"type\": \"string\"},\n                \"AvatarURL\": {\"type\": \"string\"},\n                \"PreferredLanguage\": {\"type\": \"string\"},\n                \"Hackerrank\": {\"type\": \"string\"},\n                \"GroupID\": {\"type\": \"integer\"},\n                \"Phone\": {\"type\": \"string\"},\n                \"TelegramUsername\": {\"type\": \"string\"},\n                \"TelegramUID\": {\"type\": \"string\"},\n                \"Linkedin\": {\"type\": \"string\"},\n                \"StudentID\": {\"type\": \"string\"},\n                \"ShortBio\": {\"type\": \"string\"},\n                \"Instagram\": {\"type\": \"string\"},\n                \"Birthday\": {\"type\": \"string\"},\n                \"CV\": {\"type\": \"string\"},\n                \"JoinedDate\": {\"type\": \"string\"},\n                \"ExpectedGraduationDate\": {\"type\": \"string\"},\n                \"MentorName\": {\"type\": \"string\"},\n                \"TshirtColor\": {\"type\": \"string\"},\n                \"TshirtSize\": {\"type\": \"string\"},\n                \"Gender\": {\"type\": \"string\"},\n                \"CodeOfConduct\": {\"type\": \"string\"},\n                \"Password\": {\"type\": \"string\"},\n                \"CreatedAt\": {\"type\": \"string\"},\n                \"UpdatedAt\": {\"type\": \"string\"},\n                \"Config\": {\"type\": \"string\"},\n                \"Department\": {\"type\": \"string\"},\n                \"Inactive\": {\"type\": \"boolean\"},\n                \"Role\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"ID\": {\"type\": \"integer\"},\n                        \"Type\": {\"type\": \"string\"},\n                        \"CreatedAt\": {\"type\": \"string\"},\n                        \"UpdatedAt\": {\"type\": \"string\"}\n                    }\n                },\n                \"Country\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"ID\": {\"type\": \"integer\"},\n                        \"Name\": {\"type\": \"string\"},\n                        \"ShortCode\": {\"type\": \"string\"},\n                        \"CreatedAt\": {\"type\": \"string\"},\n                        \"UpdatedAt\": {\"type\": \"string\"}\n                    }\n                },\n                \"Group\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"ID\": {\"type\": \"integer\"},\n                        \"Name\": {\"type\": \"string\"},\n                        \"ShortName\": {\"type\": \"string\"},\n                        \"Description\": {\"type\": \"string\"},\n                        \"HOAID\": {\"type\": \"integer\"},\n                        \"CountryID\": {\"type\": \"integer\"},\n                        \"CreatedAt\": {\"type\": \"string\"},\n                        \"UpdatedAt\": {\"type\": \"string\"},\n                        \"Country\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"ID\": {\"type\": \"integer\"},\n                                \"Name\": {\"type\": \"string\"},\n                                \"ShortCode\": {\"type\": \"string\"},\n                                \"CreatedAt\": {\"type\": \"string\"},\n                                \"UpdatedAt\": {\"type\": \"string\"}\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n\n ```\n\nThis endpoint allows the client to add a new user to the system.\n\n#### Request Body\n\n- `AvatarURL` (file): The URL of the user's avatar.\n    \n- `data` (text): Additional data for the user.\n    \n\n#### Response\n\nUpon successful creation of the user, the server responds with a status code of 201 and a JSON object containing the details of the newly created user, including their ID, role, name, country, university, email, and other profile information."
+            },
+            "response": [],
+            "uid": "24791476-670f66ba-ea73-4f5d-8e69-afb3c63312c3"
+          },
+          {
+            "name": "get_users_by_group",
+            "id": "f9c1cb62-83a1-41db-bc7c-118ed1bf3e82",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/users/group/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "users", "group", "1"]
+              },
+              "description": "The API endpoint retrieves a list of users belonging to a specific group. The response is a JSON object containing an array of user objects, each with various attributes such as ID, RoleID, Name, CountryID, University, Email, and more.\n\nHere is a JSON schema representing the structure of the response:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"users\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"ID\": {\"type\": \"integer\"},\n          \"RoleID\": {\"type\": \"integer\"},\n          \"Name\": {\"type\": \"string\"},\n          \"CountryID\": {\"type\": \"integer\"},\n          \"University\": {\"type\": \"string\"},\n          \"Email\": {\"type\": \"string\"},\n          \"Leetcode\": {\"type\": \"string\"},\n          \"Codeforces\": {\"type\": \"string\"},\n          \"Github\": {\"type\": \"string\"},\n          \"AvatarURL\": {\"type\": \"string\"},\n          \"PreferredLanguage\": {\"type\": \"string\"},\n          \"Hackerrank\": {\"type\": \"string\"},\n          \"GroupID\": {\"type\": \"integer\"},\n          \"Phone\": {\"type\": \"string\"},\n          \"TelegramUsername\": {\"type\": \"string\"},\n          \"TelegramUID\": {\"type\": \"string\"},\n          \"Linkedin\": {\"type\": \"string\"},\n          \"StudentID\": {\"type\": \"string\"},\n          \"ShortBio\": {\"type\": \"string\"},\n          \"Instagram\": {\"type\": \"string\"},\n          \"Birthday\": {\"type\": \"string\"},\n          \"CV\": {\"type\": \"string\"},\n          \"JoinedDate\": {\"type\": \"string\"},\n          \"ExpectedGraduationDate\": {\"type\": \"string\"},\n          \"MentorName\": {\"type\": \"string\"},\n          \"TshirtColor\": {\"type\": \"string\"},\n          \"TshirtSize\": {\"type\": \"string\"},\n          \"Gender\": {\"type\": \"string\"},\n          \"CodeOfConduct\": {\"type\": \"string\"},\n          \"Password\": {\"type\": \"string\"},\n          \"CreatedAt\": {\"type\": \"string\"},\n          \"UpdatedAt\": {\"type\": \"string\"},\n          \"Config\": {\"type\": \"string\"},\n          \"Department\": {\"type\": \"string\"},\n          \"Inactive\": {\"type\": \"boolean\"},\n          \"Role\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"ID\": {\"type\": \"integer\"},\n              \"Type\": {\"type\": \"string\"},\n              \"CreatedAt\": {\"type\": \"string\"},\n              \"UpdatedAt\": {\"type\": \"string\"}\n            }\n          },\n          \"Country\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"ID\": {\"type\": \"integer\"},\n              \"Name\": {\"type\": \"string\"},\n              \"ShortCode\": {\"type\": \"string\"},\n              \"CreatedAt\": {\"type\": \"string\"},\n              \"UpdatedAt\": {\"type\": \"string\"}\n            }\n          },\n          \"Group\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"ID\": {\"type\": \"integer\"},\n              \"Name\": {\"type\": \"string\"},\n              \"ShortName\": {\"type\": \"string\"},\n              \"Description\": {\"type\": \"string\"},\n              \"HOAID\": {\"type\": \"integer\"},\n              \"CountryID\": {\"type\": \"integer\"},\n              \"CreatedAt\": {\"type\": \"string\"},\n              \"UpdatedAt\": {\"type\": \"string\"},\n              \"Country\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"ID\": {\"type\": \"integer\"},\n                  \"Name\": {\"type\": \"string\"},\n                  \"ShortCode\": {\"type\": \"string\"},\n                  \"CreatedAt\": {\"type\": \"string\"},\n                  \"UpdatedAt\": {\"type\": \"string\"}\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n\n ```\n\n### Request Body\n\nThis request does not require a request body.\n\n### Response Body\n\nThe response will be in JSON format with a status code of 200. It will contain an array of user objects, each including various details such as ID, RoleID, Name, CountryID, University, Email, and more. Additionally, each user object will have nested objects for Role, Country, and Group, providing further details about the user's role, country, and group affiliation.\n\nPlease note that the actual user details are masked for privacy and are not visible in the response."
+            },
+            "response": [],
+            "uid": "24791476-f9c1cb62-83a1-41db-bc7c-118ed1bf3e82"
+          },
+          {
+            "name": "update_user",
+            "id": "89cfac69-c8f7-4e8c-a03f-4f06e2084415",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "AvatorURL",
+                    "type": "file",
+                    "src": "postman-cloud:///1f00a2f9-5ee7-49e0-b2b3-5173fbda5139"
+                  },
+                  {
+                    "key": "data",
+                    "value": "{\n  \"RoleID\": 2,\n  \"Name\": \"qqwsrstyvk Abra222ha\",\n  \"CountryID\": 1,\n  \"University\": \"AASVTKU\",\n  \"Email\": \"qqws1241k23yv@example.com\",\n  \"Leetcode\": \"https://leetcode.com/semere\",\n  \"Codeforces\": \"https://codeforces.com/profile/semere\",\n  \"Github\": \"https://github.com/semere\",\n  \"PreferredLanguage\": \"Go\",\n  \"Hackerrank\": \"https://hackerrank.com/semere\",\n  \"GroupID\": 1,\n  \"Phone\": \"+251911223344\",\n  \"TelegramUsername\": \"semereTG\",\n  \"TelegramUID\": \"123456789\",\n  \"Linkedin\": \"https://linkedin.com/in/semere\",\n  \"StudentID\": \"STU123456\",\n  \"ShortBio\": \"Backend developer passionate about Golang and clean architecture.\",\n  \"Instagram\": \"https://instagram.com/semere\",\n  \"Birthday\": \"2000-04-16T00:00:00Z\",\n  \"CV\": \"https://example.com/cv.pdf\",\n  \"JoinedDate\": \"2023-09-01T00:00:00Z\",\n  \"ExpectedGraduationDate\": \"2026-07-30T00:00:00Z\",\n  \"MentorName\": \"John Doe\",\n  \"TshirtColor\": \"Black\",\n  \"TshirtSize\": \"M\",\n  \"Gender\": \"male\",\n  \"CodeOfConduct\": \"accepted\",\n  \"Password\": \"Secure123!\",\n  \"CreatedAt\": \"2025-04-16T15:00:00Z\",\n  \"UpdatedAt\": \"2025-04-16T15:00:00Z\",\n  \"Config\": \"{}\",\n  \"Department\": \"Software Engineering\",\n  \"Inactive\": false\n}\n",
+                    "type": "text"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/25",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "25"]
+              },
+              "description": "### Update User Details\n\nThis endpoint allows updating the details of a specific user.\n\n#### Request Body\n\n- `RoleID` (number): The ID of the user's role.\n    \n- `Name` (string): The name of the user.\n    \n- `CountryID` (number): The ID of the user's country.\n    \n- `University` (string): The user's university.\n    \n- `Email` (string): The user's email address.\n    \n- `Leetcode` (string): The user's Leetcode profile link.\n    \n- `Codeforces` (string): The user's Codeforces profile link.\n    \n- `Github` (string): The user's Github profile link.\n    \n- `AvatarURL` (string): The URL of the user's avatar.\n    \n- `Photo` (string): The URL of the user's photo.\n    \n- `PreferredLanguage` (string): The user's preferred programming language.\n    \n- `Hackerrank` (string): The user's Hackerrank profile link.\n    \n- `GroupID` (number): The ID of the user's group.\n    \n- `Phone` (string): The user's phone number.\n    \n- `TelegramUsername` (string): The user's Telegram username.\n    \n- `TelegramUID` (string): The user's Telegram user ID.\n    \n- `Linkedin` (string): The user's LinkedIn profile link.\n    \n- `StudentID` (string): The user's student ID.\n    \n- `ShortBio` (string): A brief bio of the user.\n    \n- `Instagram` (string): The user's Instagram profile link.\n    \n- `Birthday` (string): The user's birthday.\n    \n- `CV` (string): The URL of the user's CV.\n    \n- `JoinedDate` (string): The date when the user joined.\n    \n- `ExpectedGraduationDate` (string): The expected graduation date of the user.\n    \n- `MentorName` (string): The name of the user's mentor.\n    \n- `TshirtColor` (string): The color of the user's T-shirt.\n    \n- `TshirtSize` (string): The size of the user's T-shirt.\n    \n- `Gender` (string): The gender of the user.\n    \n- `CodeOfConduct` (string): The user's acceptance of the code of conduct.\n    \n- `Password` (string): The user's password.\n    \n- `CreatedAt` (string): The date and time when the user was created.\n    \n- `UpdatedAt` (string): The date and time when the user was last updated.\n    \n- `Config` (string): Additional configuration for the user.\n    \n- `Department` (string): The user's department.\n    \n- `Inactive` (boolean): Indicates if the user is inactive.\n    \n\n#### Response (JSON Schema)\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": { \"type\": \"number\" },\n    \"message\": { \"type\": \"string\" }\n  }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-89cfac69-c8f7-4e8c-a03f-4f06e2084415"
+          },
+          {
+            "name": "delete_user",
+            "id": "cc9ebd76-2054-43e6-8c29-bdcd4b03834a",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/7",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "7"]
+              },
+              "description": "### Delete User\n\nThis endpoint is used to delete a specific user by their ID.\n\n#### Request\n\n- Method: DELETE\n    \n- URL: `http://localhost:8080/api/v0/user/7`\n    \n\n#### Response\n\nThe response is in JSON format with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"detail\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```\n\nThe response includes a status code of 500 and a JSON object with a \"detail\" key."
+            },
+            "response": [],
+            "uid": "24791476-cc9ebd76-2054-43e6-8c29-bdcd4b03834a"
+          },
+          {
+            "name": "mass_user_create",
+            "id": "7f398035-a35d-4839-9481-0cd170b85ab1",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "[\r\n    {\r\n        \"role_id\": 1,\r\n        \"name\": \"kghlt\",\r\n        \"country_id\": 10,\r\n        \"university\": \"University A\",\r\n        \"email\": \"kghlt@example.com\",\r\n        \"leetcode\": \"alice_123\",\r\n        \"codeforces\": \"alice_cf\",\r\n        \"github\": \"https://github.com/alice\",\r\n        \"AvatarURL\": \"photo_url_1\",\r\n        \"preferred_language\": \"English\",\r\n        \"hackerrank\": \"alice_hackerrank\",\r\n        \"group_id\": 1,\r\n        \"phone\": \"+1234567890\",\r\n        \"telegram_username\": \"alice_telegram\",\r\n        \"telegram_uid\": \"alice_telegram_uid\",\r\n        \"linkedin\": \"https://linkedin.com/in/alice\",\r\n        \"student_id\": \"12345\",\r\n        \"short_bio\": \"Alice's bio\",\r\n        \"instagram\": \"alice_instagram\",\r\n        \"birthday\": \"1995-05-01T00:00:00Z\",\r\n        \"cv\": \"cv_url\",\r\n        \"joined_date\": \"2023-01-01T00:00:00Z\",\r\n        \"expected_graduation_date\": \"2025-05-01T00:00:00Z\",\r\n        \"mentor_name\": \"Mentor A\",\r\n        \"tshirt_color\": \"Red\",\r\n        \"tshirt_size\": \"M\",\r\n        \"gender\": \"Female\",\r\n        \"code_of_conduct\": \"Accepted\",\r\n        \"password\": \"securepassword\",\r\n        \"department\": \"Computer Science\"\r\n    },\r\n    {\r\n        \"role_id\": 2,\r\n        \"name\": \"tghv\",\r\n        \"country_id\": 10,\r\n        \"university\": \"University B\",\r\n        \"email\": \"tgvh@example.com\",\r\n        \"leetcode\": \"bob_456\",\r\n        \"codeforces\": \"bob_cf\",\r\n        \"github\": \"https://github.com/bob\",\r\n        \"AvatarURL\": \"photo_url_2\",\r\n        \"preferred_language\": \"English\",\r\n        \"hackerrank\": \"bob_hackerrank\",\r\n        \"group_id\": 2,\r\n        \"phone\": \"+0987654321\",\r\n        \"telegram_username\": \"bob_telegram\",\r\n        \"telegram_uid\": \"bob_telegram_uid\",\r\n        \"linkedin\": \"https://linkedin.com/in/bob\",\r\n        \"student_id\": \"67890\",\r\n        \"short_bio\": \"Bob's bio\",\r\n        \"instagram\": \"bob_instagram\",\r\n        \"birthday\": \"1994-08-01T00:00:00Z\",\r\n        \"cv\": \"cv_url\",\r\n        \"joined_date\": \"2023-02-01T00:00:00Z\",\r\n        \"expected_graduation_date\": \"2025-06-01T00:00:00Z\",\r\n        \"mentor_name\": \"Mentor B\",\r\n        \"tshirt_color\": \"Blue\",\r\n        \"tshirt_size\": \"L\",\r\n        \"gender\": \"Male\",\r\n        \"code_of_conduct\": \"Accepted\",\r\n        \"password\": \"securepassword\",\r\n        \"department\": \"Mathematics\"\r\n    }\r\n]\r\n",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/bulk",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "bulk"]
+              },
+              "description": "This endpoint allows you to create multiple user profiles in bulk. The request should be sent as an HTTP POST to [http://localhost:8080/api/v0/user/bulk](http://localhost:8080/api/v0/user/bulk) with the request body containing an array of user profile objects.\n\nThe request body should include the following parameters for each user profile:\n\n- role_id (Number): The role ID of the user.\n    \n- name (String): The name of the user.\n    \n- country_id (Number): The ID of the country the user belongs to.\n    \n- university (String): The name of the university the user is associated with.\n    \n- email (String): The email address of the user.\n    \n- leetcode (String): The LeetCode username of the user.\n    \n- codeforces (String): The Codeforces username of the user.\n    \n- github (String): The GitHub profile URL of the user.\n    \n- AvatarURL (String): The URL of the user's avatar photo.\n    \n- preferred_language (String): The preferred language of the user.\n    \n- hackerrank (String): The HackerRank username of the user.\n    \n- group_id (Number): The group ID the user belongs to.\n    \n- phone (String): The phone number of the user.\n    \n- telegram_username (String): The Telegram username of the user.\n    \n- telegram_uid (String): The Telegram user ID of the user.\n    \n- linkedin (String): The LinkedIn profile URL of the user.\n    \n- student_id (String): The student ID of the user.\n    \n- short_bio (String): A short bio or description of the user.\n    \n- instagram (String): The Instagram username of the user.\n    \n- birthday (String): The birthday of the user.\n    \n- cv (String): The URL of the user's CV.\n    \n- joined_date (String): The date when the user joined.\n    \n- expected_graduation_date (String): The expected graduation date of the user.\n    \n- mentor_name (String): The name of the mentor associated with the user.\n    \n- tshirt_color (String): The color of the user's T-shirt.\n    \n- tshirt_size (String): The size of the user's T-shirt.\n    \n- gender (String): The gender of the user.\n    \n- code_of_conduct (String): The status of the user's acceptance of the code of conduct.\n    \n- password (String): The password for the user account.\n    \n- department (String): The department the user belongs to.\n    \n\nThe response will indicate the success or failure of the bulk user creation operation."
+            },
+            "response": [],
+            "uid": "24791476-7f398035-a35d-4839-9481-0cd170b85ab1"
+          },
+          {
+            "name": "cloudinary_image",
+            "id": "b6e349a4-9376-4ed6-8b0c-359e136a1639",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Accept",
+                  "value": "application/json",
+                  "type": "text"
+                }
+              ],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "avatar",
+                    "type": "file",
+                    "src": "postman-cloud:///1f00a2f9-5ee7-49e0-b2b3-5173fbda5139"
+                  }
+                ]
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/users/3/avatar",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "users", "3", "avatar"]
+              },
+              "description": "### Add User Avatar\n\nThis API endpoint allows the user to add or update the avatar for a specific user.\n\n#### Request Body\n\n- `avatar` (file): The image file to be uploaded as the user's avatar.\n    \n\n#### Response\n\nUpon successful execution, the API returns a JSON object with the following fields:\n\n- `image_url`: The URL of the uploaded image.\n    \n- `message`: A message indicating the status of the operation.\n    \n\nExample:\n\n``` json\n{\n    \"image_url\": \"\",\n    \"message\": \"\"\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-b6e349a4-9376-4ed6-8b0c-359e136a1639"
+          },
+          {
+            "name": "get_user_by_id",
+            "id": "d1ae7bb9-3e0a-4905-bfd9-479227d857b3",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "1"]
+              },
+              "description": "\nThe endpoint retrieves user information based on the provided user ID.\n\n### Response\nThe response will be a JSON object with the following schema:\n\n```json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"id\": {\n                    \"type\": \"integer\"\n                },\n                \"role_id\": {\n                    \"type\": \"integer\"\n                },\n                \"name\": {\n                    \"type\": \"string\"\n                },\n                \"country_id\": {\n                    \"type\": \"integer\"\n                },\n                \"university\": {\n                    \"type\": \"string\"\n                },\n                \"email\": {\n                    \"type\": \"string\"\n                },\n                \"AvatarURL\": {\n                    \"type\": \"string\"\n                },\n                \"preferred_language\": {\n                    \"type\": \"string\"\n                },\n                \"group_id\": {\n                    \"type\": \"integer\"\n                },\n                \"birthday\": {\n                    \"type\": \"string\"\n                },\n                \"role\": {\n                    \"type\": \"string\"\n                },\n                \"country\": {\n                    \"type\": \"string\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n"
+            },
+            "response": [],
+            "uid": "24791476-d1ae7bb9-3e0a-4905-bfd9-479227d857b3"
+          },
+          {
+            "name": "total_solved_problems_timespent_by_id",
+            "id": "5348e642-138f-4769-802c-fc42e898c5ae",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/2/submissions",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "2", "submissions"]
+              },
+              "description": "The API endpoint retrieves the submissions of a specific user with ID 2. The response contains a JSON object with a \"message\" field and a \"data\" object. The \"data\" object includes an array of \"submissions\" with various details such as submission ID, user ID, problem ID, contest ID, status, time spent, code, submitted at, rank, penalty, rating, and details of the user and problem associated with each submission. Additionally, the \"data\" object includes \"total_solved\" and \"total_time_spent\" fields. The \"status\" field indicates the status of the response.\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": { \"type\": \"string\" },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"submissions\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"ID\": { \"type\": \"integer\" },\n              \"UserID\": { \"type\": \"integer\" },\n              \"ProblemID\": { \"type\": \"integer\" },\n              \"ContestID\": { \"type\": \"integer\" },\n              \"ContestName\": { \"type\": \"string\" },\n              \"Status\": { \"type\": \"string\" },\n              \"TimeSpent\": { \"type\": \"integer\" },\n              \"Code\": { \"type\": \"string\" },\n              \"SubmittedAt\": { \"type\": \"string\" },\n              \"Rank\": { \"type\": \"integer\" },\n              \"Penalty\": { \"type\": \"integer\" },\n              \"Rating\": { \"type\": \"integer\" },\n              \"User\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  // Properties of the user object\n                }\n              },\n              \"Problem\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  // Properties of the problem object\n                }\n              }\n            }\n          }\n        },\n        \"total_solved\": { \"type\": \"integer\" },\n        \"total_time_spent\": { \"type\": \"integer\" }\n      }\n    },\n    \"status\": { \"type\": \"integer\" }\n  }\n}\n\n ```\n\nThis endpoint retrieves the submissions made by a specific user with the given user ID.\n\n#### Request\n\n- Method: GET\n    \n- URL: `http://localhost:8080/api/v0/user/2/submissions`\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n``` json\n{\n    \"message\": \"\",\n    \"data\": {\n        \"submissions\": [\n            {\n                \"ID\": 0,\n                \"UserID\": 0,\n                \"ProblemID\": 0,\n                \"ContestID\": 0,\n                \"ContestName\": \"\",\n                \"Status\": \"\",\n                \"TimeSpent\": 0,\n                \"Code\": \"\",\n                \"SubmittedAt\": \"\",\n                \"Rank\": 0,\n                \"Penalty\": 0,\n                \"Rating\": 0,\n                \"User\": {\n                    \"ID\": 0,\n                    \"RoleID\": 0,\n                    \"Name\": \"\",\n                    \"CountryID\": 0,\n                    \"University\": \"\",\n                    \"Email\": \"\",\n                    \"Leetcode\": \"\",\n                    \"Codeforces\": \"\",\n                    \"Github\": \"\",\n                    \"AvatarURL\": \"\",\n                    \"PreferredLanguage\": \"\",\n                    \"Hackerrank\": \"\",\n                    \"GroupID\": 0,\n                    \"Phone\": \"\",\n                    \"TelegramUsername\": \"\",\n                    \"TelegramUID\": \"\",\n                    \"Linkedin\": \"\",\n                    \"StudentID\": \"\",\n                    \"ShortBio\": \"\",\n                    \"Instagram\": \"\",\n                    \"Birthday\": \"\",\n                    \"CV\": \"\",\n                    \"JoinedDate\": \"\",\n                    \"ExpectedGraduationDate\": \"\",\n                    \"MentorName\": \"\",\n                    \"TshirtColor\": \"\",\n                    \"TshirtSize\": \"\",\n                    \"Gender\": \"\",\n                    \"CodeOfConduct\": \"\",\n                    \"Password\": \"\",\n                    \"CreatedAt\": \"\",\n                    \"UpdatedAt\": \"\",\n                    \"Config\": \"\",\n                    \"Department\": \"\",\n                    \"Inactive\": true,\n                    \"Role\": {\n                        \"ID\": 0,\n                        \"Type\": \"\",\n                        \"CreatedAt\": \"\",\n                        \"UpdatedAt\": \"\"\n                    },\n                    \"Country\": {\n                        \"ID\": 0,\n                        \"Name\": \"\",\n                        \"ShortCode\": \"\",\n                        \"CreatedAt\": \"\",\n                        \"UpdatedAt\": \"\"\n                    },\n                    \"Group\": {\n                        \"ID\": 0,\n                        \"Name\": \"\",\n                        \"ShortName\": \"\",\n                        \"Description\": \"\",\n                        \"HOAID\": null,\n                        \"CountryID\": 0,\n                        \"CreatedAt\": \"\",\n                        \"UpdatedAt\": \"\",\n                        \"Country\": {\n                            \"ID\": 0,\n                            \"Name\": \"\",\n                            \"ShortCode\": \"\",\n                            \"CreatedAt\": \"\",\n                            \"UpdatedAt\": \"\"\n                        }\n                    }\n                },\n                \"Problem\": {\n                    \"ID\": 0,\n                    \"ContestID\": null,\n                    \"TrackID\": null,\n                    \"Name\": \"\",\n                    \"Difficulty\": \"\",\n                    \"Tag\": \"\",\n                    \"Platform\": \"\",\n                    \"Link\": \"\",\n                    \"CreatedAt\": \"\",\n                    \"UpdatedAt\": \"\",\n                    \"Contest\": null,\n                    \"Track\": null\n                }\n            }\n        ],\n        \"total_solved\": 0,\n        \"total_time_spent\": 0\n    },\n    \"status\": 0\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-5348e642-138f-4769-802c-fc42e898c5ae"
+          },
+          {
+            "name": "get_all_users",
+            "id": "c3510259-fdc1-40fa-9ddf-89b778246324",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user"]
+              },
+              "description": "This endpoint makes an HTTP GET request to retrieve user information from the API.\n\n### Request\n\n- Method: GET\n    \n- URL: [http://localhost:8080/api/v0/user](http://localhost:8080/api/v0/user)\n    \n\n### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n- { \"message\": \"\", \"data\": \\[ { \"id\": 0, \"role_id\": 0, \"name\": \"\", \"country_id\": 0, \"university\": \"\", \"email\": \"\", \"AvatarURL\": \"\", \"preferred_language\": \"\", \"group_id\": 0, \"birthday\": \"\", \"role\": \"\", \"country\": \"\" } \\], \"status\": 0}\n    \n\nThe response contains an array of user data with fields such as id, role_id, name, country_id, university, email, AvatarURL, preferred_language, group_id, birthday, role, and country. The \"status\" field indicates the status of the response. The \"message\" field may contain additional information or messages from the server.\n\nThis endpoint allows you to retrieve user information.\n\n## Request\n\n### Endpoint\n\n`GET` [http://localhost:8080/api/v0/user](http://localhost:8080/api/v0/user)\n\n### Headers\n\nNo specific headers are required for this request.\n\n### Parameters\n\nNo parameters are required for this request.\n\n### Request Body\n\nThis request does not require a request body.\n\n## Response\n\n### Status\n\nThe response will have a status code of 200.\n\n### Headers\n\nThe `Content-Type` header will have a value of `application/json`.\n\n### Response Body\n\nThe response body will contain a JSON object with the following structure:\n\n``` json\n{\n    \"message\": \"\",\n    \"data\": [\n        {\n            \"id\": 0,\n            \"role_id\": 0,\n            \"name\": \"\",\n            \"country_id\": 0,\n            \"university\": \"\",\n            \"email\": \"\",\n            \"AvatarURL\": \"\",\n            \"preferred_language\": \"\",\n            \"group_id\": 0,\n            \"birthday\": \"\",\n            \"role\": \"\",\n            \"country\": \"\"\n        }\n    ],\n    \"status\": 0\n}\n\n ```\n\nThe `data` key contains an array of user objects, each with attributes such as `id`, `role_id`, `name`, `country_id`, `university`, `email`, `AvatarURL`, `preferred_language`, `group_id`, `birthday`, `role`, and `country`.\n\nThis endpoint is used to retrieve user data.\n\n#### Request\n\nNo request body is required for this GET request.\n\n- Endpoint: `http://localhost:8080/api/v0/user`\n    \n- Method: `GET`\n    \n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"id\": {\n                        \"type\": \"integer\"\n                    },\n                    \"role_id\": {\n                        \"type\": \"integer\"\n                    },\n                    \"name\": {\n                        \"type\": \"string\"\n                    },\n                    \"country_id\": {\n                        \"type\": \"integer\"\n                    },\n                    \"university\": {\n                        \"type\": \"string\"\n                    },\n                    \"email\": {\n                        \"type\": \"string\"\n                    },\n                    \"AvatarURL\": {\n                        \"type\": \"string\"\n                    },\n                    \"preferred_language\": {\n                        \"type\": \"string\"\n                    },\n                    \"group_id\": {\n                        \"type\": \"integer\"\n                    },\n                    \"birthday\": {\n                        \"type\": \"string\"\n                    },\n                    \"role\": {\n                        \"type\": \"string\"\n                    },\n                    \"country\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-c3510259-fdc1-40fa-9ddf-89b778246324"
+          },
+          {
+            "name": "get_users_by_id",
+            "id": "125071e7-4c30-4300-a106-f91c5d7571ff",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/user/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "user", "1"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-125071e7-4c30-4300-a106-f91c5d7571ff"
+          },
+          {
+            "name": "login",
+            "id": "7bf3fc63-fbde-4ebc-8834-637f534c4f65",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"email\": \"urji.eyasu@a2sv.org\",\r\n    \"password\": \"Secure123!\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/auth/login",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "auth", "login"]
+              },
+              "description": "The endpoint allows users to authenticate and obtain a token for accessing protected resources. Upon successful authentication, the response will include a JSON object with a token, refresh token, and user information.\n\n### Response\n\nThe response is in JSON format with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"token\": {\n                    \"type\": \"string\"\n                },\n                \"refresh_token\": {\n                    \"type\": \"string\"\n                },\n                \"user\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                        \"id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"role_id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"name\": {\n                            \"type\": \"string\"\n                        },\n                        \"country_id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"university\": {\n                            \"type\": \"string\"\n                        },\n                        \"email\": {\n                            \"type\": \"string\"\n                        },\n                        \"leetcode\": {\n                            \"type\": \"string\"\n                        },\n                        \"codeforces\": {\n                            \"type\": \"string\"\n                        },\n                        \"github\": {\n                            \"type\": \"string\"\n                        },\n                        \"avatar_url\": {\n                            \"type\": \"string\"\n                        },\n                        \"preferred_language\": {\n                            \"type\": \"string\"\n                        },\n                        \"hackerrank\": {\n                            \"type\": \"string\"\n                        },\n                        \"group_id\": {\n                            \"type\": \"integer\"\n                        },\n                        \"phone\": {\n                            \"type\": \"string\"\n                        },\n                        \"telegram_username\": {\n                            \"type\": \"string\"\n                        },\n                        \"linkedin\": {\n                            \"type\": \"string\"\n                        },\n                        \"student_id\": {\n                            \"type\": \"string\"\n                        },\n                        \"short_bio\": {\n                            \"type\": \"string\"\n                        },\n                        \"instagram\": {\n                            \"type\": \"string\"\n                        },\n                        \"birthday\": {\n                            \"type\": \"string\"\n                        },\n                        \"gender\": {\n                            \"type\": \"string\"\n                        },\n                        \"department\": {\n                            \"type\": \"string\"\n                        },\n                        \"role\": {\n                            \"type\": \"string\"\n                        },\n                        \"country\": {\n                            \"type\": \"string\"\n                        }\n                    }\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```\n\nThis endpoint allows users to authenticate and obtain an access token for accessing protected resources.\n\n#### Request Body\n\n- **email** (text) : The email address of the user.\n    \n- **password** (text) : The password for the user's account.\n    \n\n#### Response\n\nUpon successful authentication, the server returns a JSON object with the following fields:\n\n- **message** : A message from the server.\n    \n- **data** : An object containing the authentication token, refresh token, and user details.\n    \n    - **token** : The access token for the authenticated user.\n        \n    - **refresh_token** : The refresh token for obtaining a new access token.\n        \n    - **user** : An object containing the user details.\n        \n        - **id** : The user's ID.\n            \n        - **role_id** : The user's role ID.\n            \n        - **name** : The user's name.\n            \n        - **country_id** : The user's country ID.\n            \n        - **university** : The user's university.\n            \n        - **email** : The user's email address.\n            \n        - **...** : Other user details such as social media profiles, avatar URL, preferred language, etc.\n            \n\n#### Example\n\n``` json\n{\n    \"email\": \"user@example.com\",\n    \"password\": \"********\"\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-7bf3fc63-fbde-4ebc-8834-637f534c4f65"
+          }
+        ],
+        "id": "2b5561c5-af78-4e42-bacc-29b08b52602f",
+        "uid": "24791476-2b5561c5-af78-4e42-bacc-29b08b52602f"
+      },
+      {
+        "name": "Contest",
+        "item": [
+          {
+            "name": "get_contest",
+            "id": "d76788bb-d079-4daf-9918-bb9a96b0693d",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/contest",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "contest"]
+              },
+              "description": "# Contest API\n\nThis API endpoint makes an HTTP GET request to retrieve contest details.\n\n## Request\n\n- Method: GET\n    \n- Endpoint: `http://localhost:8080/api/v0/contest/`\n    \n\n## Response\n\nThe response for this request is a JSON object representing the contest details. Below is the JSON schema for the response:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"contestId\": {\n      \"type\": \"string\"\n    },\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"startDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"endDate\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"participants\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-d76788bb-d079-4daf-9918-bb9a96b0693d"
+          },
+          {
+            "name": "create_contest",
+            "id": "18b93770-1b78-40ff-be8d-346f9b38fe4f",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "\r\n{\r\n    \"name\": \"Trial\",\r\n    \"link\": \"https://codeforces.com/gym/605683\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/contest",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "contest"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-18b93770-1b78-40ff-be8d-346f9b38fe4f"
+          },
+          {
+            "name": "users_standings",
+            "id": "a130f5a6-f7c7-4b3a-a40c-b9b2e26df87e",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/contest/605683/standings",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "contest", "605683", "standings"]
+              }
+            },
+            "response": [],
+            "uid": "24791476-a130f5a6-f7c7-4b3a-a40c-b9b2e26df87e"
+          }
+        ],
+        "id": "1216c5d0-ea3c-494d-a0de-cc8be122cee6",
+        "uid": "24791476-1216c5d0-ea3c-494d-a0de-cc8be122cee6"
+      },
+      {
+        "name": "session",
+        "item": [
+          {
+            "name": "Create session",
+            "id": "ae541101-5589-4086-8cde-9a39c4ec9767",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"name\": \"Pair programming\",\r\n    \"description\": \"Pair programming session\",\r\n    \"start_time\":\"2025-04-29T18:07:00Z\",\r\n    \"end_time\":\"2025-04-29T20:07:00Z\",\r\n    \"meet_link\":\"\",\r\n    \"location\":\"\",\r\n    \"resource_link\":\"here is the link\",\r\n    \"lecturer_id\":39,\r\n    \"fund_id\":1\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/session",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "session"]
+              },
+              "description": "This endpoint allows you to create a new session by sending an HTTP POST request to the specified URL. The request should include the session details such as name, description, start time, end time, meet link, location, resource link, lecturer ID, and fund ID in the request body.\n\n### Request Body\n\n- `name`: (string) The name of the session.\n    \n- `description`: (string) The description of the session.\n    \n- `start_time`: (string) The start time of the session in ISO 8601 format.\n    \n- `end_time`: (string) The end time of the session in ISO 8601 format.\n    \n- `meet_link`: (string) The link for the meeting.\n    \n- `location`: (string) The location of the session.\n    \n- `resource_link`: (string) The link to additional resources.\n    \n- `lecturer_id`: (integer) The ID of the lecturer.\n    \n- `fund_id`: (integer) The ID of the fund.\n    \n\n### Response\n\nUpon successful creation, the server responds with a status code 201 and a JSON object containing a message, data, and status. The `data` object includes the ID, name, description, start time, end time, meet link, location, resource link, recording link, calendar event ID, lecturer ID, fund ID, created at, and updated at timestamps.\n\nThe response to this request is a JSON object with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"ID\": {\n          \"type\": \"integer\"\n        },\n        \"Name\": {\n          \"type\": \"string\"\n        },\n        \"Description\": {\n          \"type\": \"string\"\n        },\n        \"StartTime\": {\n          \"type\": \"string\"\n        },\n        \"EndTime\": {\n          \"type\": \"string\"\n        },\n        \"MeetLink\": {\n          \"type\": \"string\"\n        },\n        \"Location\": {\n          \"type\": \"string\"\n        },\n        \"ResourceLink\": {\n          \"type\": \"string\"\n        },\n        \"RecordingLink\": {\n          \"type\": \"string\"\n        },\n        \"CalendarEventID\": {\n          \"type\": \"string\"\n        },\n        \"LecturerID\": {\n          \"type\": \"integer\"\n        },\n        \"FundID\": {\n          \"type\": \"integer\"\n        },\n        \"CreatedAt\": {\n          \"type\": \"string\"\n        },\n        \"UpdatedAt\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"status\": {\n      \"type\": \"integer\"\n    }\n  }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-ae541101-5589-4086-8cde-9a39c4ec9767"
+          },
+          {
+            "name": "Get all session",
+            "id": "827bad58-4bad-4bef-b304-0ea8414df312",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/session",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "session"]
+              },
+              "description": "This endpoint retrieves session data with the option to filter by query, page, limit, lecturer_id, start_time, and end_time.\n\n### Request Query Parameters\n\n- `page` (optional): The page number for pagination.\n    \n- `limit` (optional): The limit for the number of items per page.\n    \n- `lecturer_id` (optional): Filter by lecturer ID.\n    \n- `start_time` (optional): Filter by start time.\n    \n- `end_time` (optional): Filter by end time.\n    \n\n### Response\n\nThe response will have a status code of 200 and a content type of application/json.\n\nThis endpoint retrieves session details.\n\n## Request\n\n### HTTP Request\n\n`GET http://localhost:8080/api/v0/session`\n\n## Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n``` json\n{\n    \"message\": \"\",\n    \"data\": [\n        {\n            \"ID\": 0,\n            \"Name\": \"\",\n            \"Description\": \"\",\n            \"StartTime\": \"\",\n            \"EndTime\": \"\",\n            \"MeetLink\": \"\",\n            \"Location\": \"\",\n            \"ResourceLink\": \"\",\n            \"RecordingLink\": \"\",\n            \"CalendarEventID\": \"\",\n            \"LecturerID\": 0,\n            \"FundID\": 0,\n            \"CreatedAt\": \"\",\n            \"UpdatedAt\": \"\"\n        }\n    ],\n    \"status\": 0\n}\n\n ```\n\nThe response includes an array of session details with fields such as ID, Name, Description, StartTime, EndTime, MeetLink, Location, ResourceLink, RecordingLink, CalendarEventID, LecturerID, FundID, CreatedAt, and UpdatedAt.\n\n### Response\n\nThe response is in JSON format and has the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"ID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"Name\": {\n                        \"type\": \"string\"\n                    },\n                    \"Description\": {\n                        \"type\": \"string\"\n                    },\n                    \"StartTime\": {\n                        \"type\": \"string\"\n                    },\n                    \"EndTime\": {\n                        \"type\": \"string\"\n                    },\n                    \"MeetLink\": {\n                        \"type\": \"string\"\n                    },\n                    \"Location\": {\n                        \"type\": \"string\"\n                    },\n                    \"ResourceLink\": {\n                        \"type\": \"string\"\n                    },\n                    \"RecordingLink\": {\n                        \"type\": \"string\"\n                    },\n                    \"CalendarEventID\": {\n                        \"type\": \"string\"\n                    },\n                    \"LecturerID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"FundID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"CreatedAt\": {\n                        \"type\": \"string\"\n                    },\n                    \"UpdatedAt\": {\n                        \"type\": \"string\"\n                    }\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-827bad58-4bad-4bef-b304-0ea8414df312"
+          },
+          {
+            "name": "Get session by id",
+            "id": "1c64ca87-4030-4521-b7d8-90b91f768006",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/session/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "session", ":id"],
+                "variable": [
+                  {
+                    "id": "99df3ad8-2575-47ee-826c-3349742a8b8c",
+                    "key": "id",
+                    "value": "2"
+                  }
+                ]
+              },
+              "description": "This endpoint retrieves session details based on the provided session ID.\n\n### Response\n\nThe response is a JSON object with the following properties:\n\n- `message` (string): A message related to the response.\n    \n- `data` (object): An object containing the session details with the following properties:\n    \n    - `ID` (number): The ID of the session.\n        \n    - `Name` (string): The name of the session.\n        \n    - `Description` (string): The description of the session.\n        \n    - `StartTime` (string): The start time of the session.\n        \n    - `EndTime` (string): The end time of the session.\n        \n    - `MeetLink` (string): The link for the session meeting.\n        \n    - `Location` (string): The location of the session.\n        \n    - `ResourceLink` (string): The link to additional resources for the session.\n        \n    - `RecordingLink` (string): The link to the recording of the session.\n        \n    - `CalendarEventID` (string): The ID of the calendar event associated with the session.\n        \n    - `LecturerID` (number): The ID of the lecturer for the session.\n        \n    - `FundID` (number): The ID of the fund associated with the session.\n        \n    - `CreatedAt` (string): The timestamp of when the session was created.\n        \n    - `UpdatedAt` (string): The timestamp of when the session was last updated.\n        \n- `status` (number): The status code of the response.\n    \n\nThe response follows the JSON schema described above."
+            },
+            "response": [],
+            "uid": "24791476-1c64ca87-4030-4521-b7d8-90b91f768006"
+          },
+          {
+            "name": "Update session",
+            "id": "e08b4b7d-413e-4a97-9d72-b12dd65a9cb4",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"name\": \"Lecture on binary search\",\r\n    \"description\": \"Lecture on binary search\",\r\n    \"start_time\":\"2025-04-24T18:07:00Z\",\r\n    \"end_time\":\"2025-04-24T20:07:00Z\"\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/session/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "session", ":id"],
+                "variable": [
+                  {
+                    "id": "1b713e9a-fae7-4af6-9903-6edab800d828",
+                    "key": "id",
+                    "value": "6"
+                  }
+                ]
+              },
+              "description": "### Update Session\n\nThis endpoint is used to update a session with the provided ID.\n\n#### Request Body\n\n- Type: JSON\n    \n    - name (string): The name of the session.\n        \n    - description (string): The description of the session.\n        \n    - start_time (string): The start time of the session in ISO 8601 format.\n        \n    - end_time (string): The end time of the session in ISO 8601 format.\n        \n\n#### Response\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"ID\": {\n          \"type\": \"integer\"\n        },\n        \"Name\": {\n          \"type\": \"string\"\n        },\n        \"Description\": {\n          \"type\": \"string\"\n        },\n        \"StartTime\": {\n          \"type\": \"string\"\n        },\n        \"EndTime\": {\n          \"type\": \"string\"\n        },\n        \"MeetLink\": {\n          \"type\": \"string\"\n        },\n        \"Location\": {\n          \"type\": \"string\"\n        },\n        \"ResourceLink\": {\n          \"type\": \"string\"\n        },\n        \"RecordingLink\": {\n          \"type\": \"string\"\n        },\n        \"CalendarEventID\": {\n          \"type\": \"string\"\n        },\n        \"LecturerID\": {\n          \"type\": \"integer\"\n        },\n        \"FundID\": {\n          \"type\": \"integer\"\n        },\n        \"CreatedAt\": {\n          \"type\": \"string\"\n        },\n        \"UpdatedAt\": {\n          \"type\": \"string\"\n        }\n      }\n    },\n    \"status\": {\n      \"type\": \"integer\"\n    }\n  }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-e08b4b7d-413e-4a97-9d72-b12dd65a9cb4"
+          },
+          {
+            "name": "Delete session",
+            "id": "316fe27a-cc29-4b21-9d1e-92b9e37ee21a",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/session/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "session", ":id"],
+                "variable": [
+                  {
+                    "id": "0cba5ec3-665b-4b42-9bce-4ba835b8ae3a",
+                    "key": "id",
+                    "value": "10"
+                  }
+                ]
+              },
+              "description": "### Delete Session\n\nThis endpoint is used to delete a specific session identified by the session ID.\n\n#### Request\n\n- Method: DELETE\n    \n- URL: `http://localhost:8080/api/v0/session/:id`\n    \n\n#### Response\n\nThe response of this request is a JSON schema representing the structure of the response data. The JSON schema will define the expected properties and their data types for the response object."
+            },
+            "response": [],
+            "uid": "24791476-316fe27a-cc29-4b21-9d1e-92b9e37ee21a"
+          }
+        ],
+        "id": "dbfe9d86-e4ce-483a-9129-a5a298afb263",
+        "uid": "24791476-dbfe9d86-e4ce-483a-9129-a5a298afb263"
+      },
+      {
+        "name": "attendance",
+        "item": [
+          {
+            "name": "Get all attendance",
+            "id": "5d2fffee-e08f-4f33-9bab-1c2db6ed28ab",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": ""
+              }
+            },
+            "response": [],
+            "uid": "24791476-5d2fffee-e08f-4f33-9bab-1c2db6ed28ab"
+          },
+          {
+            "name": "Take attendance",
+            "id": "7cbc4ee4-743f-43a9-bdd7-e9c215ea0ca4",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "\r\n{\r\n    \"user_id\":17,\r\n    \"head_id\":18,\r\n    \"status\":1,\r\n    \"session_id\": 6,\r\n    \"type\":1\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/attendance",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "attendance"]
+              },
+              "description": "The HTTP POST request is used to submit attendance data to the specified endpoint at [http://localhost:8080/api/v0/attendance](http://localhost:8080/api/v0/attendance).\n\n### Request Body\n\nThe request should include the following parameters in the raw request body type:\n\n- `user_id`: The ID of the user submitting the attendance.\n    \n- `head_id`: The ID of the head or supervisor.\n    \n- `status`: The status of the attendance, where 1 represents 'Present', 2 represents 'Absent', 3 represents 'Late', and 4 represents 'Excused'.\n    \n- `session_id`: The ID of the session for which the attendance is being submitted.\n    \n- `type`: The type of attendance, where 1 represents 'Checkin' and 0 represents 'Checkout'.\n    \n\n### Response\n\nUpon a successful execution, the response will have a status code of 201 and a content type of application/json. The response body will contain the following fields:\n\n- `message`: A message related to the response.\n    \n- `data`: An object containing the following attributes:\n    \n    - `ID`: The ID of the attendance record.\n        \n    - `UserID`: The ID of the user.\n        \n    - `HeadID`: The ID of the head or supervisor.\n        \n    - `Status`: The status of the attendance.\n        \n    - `At`: The timestamp of the attendance.\n        \n    - `CreatedAt`: The timestamp of creation.\n        \n    - `UpdatedAt`: The timestamp of the last update.\n        \n    - `SessionID`: The ID of the session.\n        \n    - `Type`: The type of attendance.\n        \n\nPlease note that the `status` and `type` parameters have specific values as mentioned above.\n\nThis API endpoint allows you to record attendance by making an HTTP POST request to the specified URL.\n\n#### Request Body\n\n- user_id (number): The ID of the user for whom the attendance is being recorded.\n    \n- head_id (number): The ID of the head under which the attendance is being recorded.\n    \n- status (number): The status of the attendance.\n    \n- session_id (number): The ID of the session during which the attendance is being recorded.\n    \n- type (number): The type of attendance.\n    \n\n#### Response\n\nThe response is in the form of a JSON object with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"number\"\n                },\n                \"UserID\": {\n                    \"type\": \"number\"\n                },\n                \"HeadID\": {\n                    \"type\": \"number\"\n                },\n                \"Status\": {\n                    \"type\": \"number\"\n                },\n                \"At\": {\n                    \"type\": \"string\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"SessionID\": {\n                    \"type\": \"number\"\n                },\n                \"Type\": {\n                    \"type\": \"number\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"number\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-7cbc4ee4-743f-43a9-bdd7-e9c215ea0ca4"
+          },
+          {
+            "name": "Take mass attendance",
+            "id": "ed512170-d6e5-4771-a95c-4be3cef54242",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"user_ids\": [18, 17, 21],\r\n    \"head_id\":18,\r\n    \"status\":1,\r\n    \"session_id\": 6,\r\n    \"type\":1\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/attendance/users",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "attendance", "users"]
+              },
+              "description": "### Attendance Users API\n\nThis API endpoint allows you to submit attendance for users.\n\n#### Request Body\n\n- `user_ids` (array of integers) - The IDs of the users for whom attendance is being submitted.\n    \n- `head_id` (integer) - The ID of the head user.\n    \n- `status` (integer) - The status of the attendance.\n    \n- `session_id` (integer) - The ID of the session.\n    \n- `type` (integer) - The type of attendance.\n    \n\n#### Response\n\nThe response is in JSON format and follows the schema below:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"array\",\n            \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"ID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"UserID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"HeadID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"Status\": {\n                        \"type\": \"integer\"\n                    },\n                    \"At\": {\n                        \"type\": \"string\"\n                    },\n                    \"CreatedAt\": {\n                        \"type\": \"string\"\n                    },\n                    \"UpdatedAt\": {\n                        \"type\": \"string\"\n                    },\n                    \"SessionID\": {\n                        \"type\": \"integer\"\n                    },\n                    \"Type\": {\n                        \"type\": \"integer\"\n                    }\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-ed512170-d6e5-4771-a95c-4be3cef54242"
+          },
+          {
+            "name": "Get attendance by id",
+            "id": "48a36eb7-9c8f-45df-8cbe-c16823db80d2",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/attendance/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "attendance", ":id"],
+                "variable": [
+                  {
+                    "id": "acfe2d04-0e05-4cc9-8799-93e8277460ee",
+                    "key": "id",
+                    "value": "8"
+                  }
+                ]
+              },
+              "description": "The endpoint retrieves the attendance details for a specific ID.\n\nThe response of the request can be documented as a JSON schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"integer\"\n                },\n                \"UserID\": {\n                    \"type\": \"integer\"\n                },\n                \"HeadID\": {\n                    \"type\": \"integer\"\n                },\n                \"Status\": {\n                    \"type\": \"integer\"\n                },\n                \"At\": {\n                    \"type\": \"string\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"SessionID\": {\n                    \"type\": \"integer\"\n                },\n                \"Type\": {\n                    \"type\": \"integer\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-48a36eb7-9c8f-45df-8cbe-c16823db80d2"
+          },
+          {
+            "name": "Update attendance",
+            "id": "24a8fa1a-96a3-4fe7-bfeb-ba7e588d2943",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "PUT",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{\r\n    \"status\":0,\r\n    \"session_id\": 7,\r\n    \"type\":2\r\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:8080/api/v0/attendance/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "attendance", ":id"],
+                "variable": [
+                  {
+                    "id": "366336b3-c75a-4adf-8468-05f32065a70c",
+                    "key": "id",
+                    "value": "8"
+                  }
+                ]
+              },
+              "description": "This endpoint allows you to update the attendance record for a specific ID using an HTTP PUT request. The \":id\" parameter in the request URL should be replaced with the ID of the attendance record to be updated.\n\nThe request should have a raw body with the following parameters:\n\n- \"status\" (Number): The status of the attendance.\n    \n- \"session_id\" (Number): The ID of the session.\n    \n- \"type\" (Number): The type of attendance.\n    \n\nThe response will have a status code of 200 and a JSON content type. The response body will include a message and data object with the updated attendance record details.\n\nThis API endpoint is used to update the attendance for a specific ID.\n\n#### Request Parameters\n\n- `status` (integer): The status of the attendance.\n    \n- `session_id` (integer): The ID of the session.\n    \n- `type` (integer): The type of the attendance.\n    \n\n#### Response\n\nThe response from this endpoint follows the JSON schema below:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        },\n        \"data\": {\n            \"type\": \"object\",\n            \"properties\": {\n                \"ID\": {\n                    \"type\": \"integer\"\n                },\n                \"UserID\": {\n                    \"type\": \"integer\"\n                },\n                \"HeadID\": {\n                    \"type\": \"integer\"\n                },\n                \"Status\": {\n                    \"type\": \"integer\"\n                },\n                \"At\": {\n                    \"type\": \"string\"\n                },\n                \"CreatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"UpdatedAt\": {\n                    \"type\": \"string\"\n                },\n                \"SessionID\": {\n                    \"type\": \"integer\"\n                },\n                \"Type\": {\n                    \"type\": \"integer\"\n                }\n            }\n        },\n        \"status\": {\n            \"type\": \"integer\"\n        }\n    }\n}\n\n ```"
+            },
+            "response": [],
+            "uid": "24791476-24a8fa1a-96a3-4fe7-bfeb-ba7e588d2943"
+          },
+          {
+            "name": "Delete Attendance",
+            "id": "0a26ce03-8594-490b-b8ce-df6712468a99",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/api/v0/attendance/:id",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["api", "v0", "attendance", ":id"],
+                "variable": [
+                  {
+                    "id": "86e1ecac-9427-42b9-9c92-3e766b65b767",
+                    "key": "id",
+                    "value": "6"
+                  }
+                ]
+              },
+              "description": "This API endpoint sends an HTTP DELETE request to [http://localhost:8080/api/v0/attendance/:id](http://localhost:8080/api/v0/attendance/:id) to delete the attendance record with the specified ID.\n\n### Response\n\nThe response of this request is a JSON schema representing the structure of the response data. The schema will define the properties and their data types that will be returned upon successful deletion of the attendance record."
+            },
+            "response": [],
+            "uid": "24791476-0a26ce03-8594-490b-b8ce-df6712468a99"
+          }
+        ],
+        "id": "f8693ae1-024e-4f4d-9fc3-6a4c7636bd64",
+        "uid": "24791476-f8693ae1-024e-4f4d-9fc3-6a4c7636bd64"
+      },
+      {
+        "name": "swagger",
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "id": "7e6a8abc-1a23-42cd-a613-be74b71bbf3f",
+              "exec": [
+                "var template = `\r",
+                "<style type=\"text/css\">\r",
+                "    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+                "    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+                "    .tftable tr {background-color:#ffffff;}\r",
+                "    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+                "    .tftable tr:hover {background-color:#e0ffff;}\r",
+                "</style>\r",
+                "\r",
+                "<table class=\"tftable\" border=\"1\">\r",
+                "    <tr>\r",
+                "        <th>Collection Name</th>\r",
+                "        <th>Item Name</th>\r",
+                "        <th>Request Method</th>\r",
+                "        <th>Request URL</th>\r",
+                "    </tr>\r",
+                "    \r",
+                "    {{#each response.collection.item}}\r",
+                "        <tr>\r",
+                "            <td>{{name}}</td>\r",
+                "            <td>{{item.[0].name}}</td>\r",
+                "            <td>{{item.[0].request.method}}</td>\r",
+                "            <td>{{item.[0].request.url.raw}}</td>\r",
+                "        </tr>\r",
+                "    {{/each}}\r",
+                "</table>\r",
+                "`;\r",
+                "\r",
+                "function constructVisualizerPayload() {\r",
+                "    return { response: pm.response.json() }\r",
+                "}\r",
+                "\r",
+                "pm.visualizer.set(template, constructVisualizerPayload());"
+              ],
+              "type": "text/javascript",
+              "packages": {}
+            }
+          }
+        ],
+        "id": "ef8e67a7-f247-483d-8a41-9fe91e86c7ae",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "apikey",
+            "apikey": [
+              {
+                "key": "key",
+                "value": "X-API-Key",
+                "type": "string"
+              },
+              {
+                "key": "value",
+                "value": "PMAK-680a4f4fd06b6500014d3223-9b3a98515952207042ce37c62e4a919b34",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "https://api.getpostman.com/collections/:collectionId",
+            "protocol": "https",
+            "host": ["api", "getpostman", "com"],
+            "path": ["collections", ":collectionId"],
+            "variable": [
+              {
+                "key": "collectionId",
+                "value": "24791476-b3f0bfc9-427a-48b6-9659-f26569bfed56"
+              }
+            ]
+          }
+        },
+        "response": [],
+        "uid": "24791476-ef8e67a7-f247-483d-8a41-9fe91e86c7ae"
+      }
+    ]
+  }
+}

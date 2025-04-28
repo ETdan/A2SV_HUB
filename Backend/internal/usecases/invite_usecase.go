@@ -188,16 +188,13 @@ func (i *InviteUseCase) AcceptInvite(token string) (*dtos.InvitedUserDTO, *domai
 			Status:  500,
 		}
 	}
-<<<<<<< HEAD
 	if user == nil {
 		return &dtos.InvitedUserDTO{}, &domain.ErrorResponse{
 			Message: "User not found",
 			Status:  404,
 		}
 	}
-=======
 
->>>>>>> 2dc7054c8630a4f780cb2d496b35ac15bc638d0b
 	err = i.inviteRepository.UpdateInviteStatus(invite.ID, context.TODO())
 	if err != nil {
 		return &dtos.InvitedUserDTO{}, &domain.ErrorResponse{
